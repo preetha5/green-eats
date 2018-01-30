@@ -5,44 +5,24 @@ const URL_RESTAURANTS = "https://developers.zomato.com/api/v2.1/search";
 const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?";
 const restaurant_thumb = "images/restaurant_thumb.png";  
 let queryString = '';
-//let cityQuery = '';
 let start = 0;
 let end = 10;
 let total = 0;
-// let image = '';
 
-// function getFlickrImage(name){
-//     debugger;
-//     console.log(name);
-//     let flickrQuery = {
-//         'method': "flickr.photos.search",
-//         'text': name +" "+ queryString,
-//         'content_type': 1,
-//         'sort': "relevance",
-//         'format': "json",
-//         'per_page': 5,
-//         "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
-//         };
-//     console.log(flickrQuery);
-//     $.getJSON(URL_FLICKR, flickrQuery, function(data){
-//         console.log(data);
-//         photoId = data.photos.photo[0].id;
-//         console.log("photo is "+ photoId);
-//         let photoQuery = {
-//             'method': "flickr.photos.getSizes",
-//             'photo_id':photoId,
-//             'format': "json",
-//             "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
-//         };
-//         $.getJSON(URL_FLICKR, photoQuery, function(data){
-//             console.log(data);
-//             path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
-//             console.log("inside flickr func "+path);
-//             debugger;
-//             $("img[alt='"+name+"']").css("background-color", "red");
-//         });
-//     });
-// }
+// BEGIN: GOOGLE AUTOCOMPLETE FOR CITIES
+function initAutocomplete() {
+    let input = $(".search_query");
+    console.log(input);
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(input,{types: ['geocode']});
+
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);
+}
+
+// END: GOOGLE AUTOCOMPLETE FOR CITIES
 
 function renderRestaurant(item){
     let restaurantName = item.restaurant.name;
