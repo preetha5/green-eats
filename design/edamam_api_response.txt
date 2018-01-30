@@ -1,0 +1,745 @@
+{
+"q": "vegetarian india",
+"from": 0,
+"to": 3,
+"params": {
+"sane": [],
+"q": [
+"vegetarian india"
+],
+"app_key": [
+"c6f65fe807883f1ff2522326f432f2b4"
+],
+"from": [
+"0"
+],
+"to": [
+"3"
+],
+"calories": [
+"591-722"
+],
+"app_id": [
+"69992146"
+]
+},
+"more": false,
+"count": 2,
+"hits": [
+{
+"recipe": {
+"uri": "http://www.edamam.com/ontologies/edamam.owl#recipe_74ef9a9674bd1d6033162698867c8563",
+"label": "Hakka Noodles recipes",
+"image": "https://www.edamam.com/web-img/3a1/3a17b35cd4951664d4f4469638b381a1",
+"source": "ecurry.com",
+"url": "http://www.ecurry.com/blog/pasta-pizza/hakka-noodles/",
+"shareAs": "http://www.edamam.com/recipe/hakka-noodles-recipes-74ef9a9674bd1d6033162698867c8563/vegetarian+india/591-722-cal",
+"yield": 4,
+"dietLabels": [
+"Balanced"
+],
+"healthLabels": [
+"Vegetarian",
+"Peanut-Free",
+"Tree-Nut-Free",
+"Alcohol-Free"
+],
+"cautions": [],
+"tags": [
+"pasta",
+"india",
+"india. curry",
+"vegetable hakka noodle",
+"noodles vegetarian",
+"vegan hakka noodles",
+"noodles soup",
+"vegan noodles",
+"garlic bread",
+"vegetarian asian noodle",
+"pork potato stew",
+"ketchup sauce noodles",
+"veg noodles veg recipes of india",
+"somen noodles",
+"vegan black bean noodles",
+"vegetarian noodle",
+"vegetarian noodles",
+"noodle recipe",
+"clear noodles",
+"vegetarian curry noodles"
+],
+"ingredientLines": [
+"1. 400 grams Hakka Noodles (I used Ching’s wheat 100% vegetarian noodles ) – The egg noodles  work as well.",
+"2. 2 carrots, peeled and cut into matchsticks",
+"3. 1 bell pepper/capsicum, juliened",
+"4. 1/2 small green cabbage,  shredded",
+"5. 3 cups or about 12 oz beans, cut diagonally or use the frozen french style cut beans",
+"6. 1 medium onion, sliced into thin half moons",
+"7. 1 bunch green onions/scallions, chopped (green and white parts)",
+"8. 1 tablespoon red chilli flakes",
+"9. 1/4 cup Asian Sesame Oil",
+"10. 4 tablespoons dark soy sauce (See Note below)",
+"11. 2 tablespoons vinegar",
+"salt",
+"1. about 6-8 cloves of garlic (when processed it should be about 1/6 cup)",
+"2. 3/4 inch piece fresh ginger, grated",
+"3. 2 tablespoons hot/chili sauce, like Sriracha or the Green Chili Sauce that we usually use in India",
+"4. a little less than 1/4 cup ketchup or tomato paste",
+"5. 3 teaspoons white sesame seeds"
+],
+"ingredients": [
+{
+"text": "1. 400 grams Hakka Noodles (I used Ching’s wheat 100% vegetarian noodles ) – The egg noodles  work as well.",
+"weight": 400
+},
+{
+"text": "2. 2 carrots, peeled and cut into matchsticks",
+"weight": 122
+},
+{
+"text": "3. 1 bell pepper/capsicum, juliened",
+"weight": 119
+},
+{
+"text": "4. 1/2 small green cabbage,  shredded",
+"weight": 5.625
+},
+{
+"text": "5. 3 cups or about 12 oz beans, cut diagonally or use the frozen french style cut beans",
+"weight": 300
+},
+{
+"text": "6. 1 medium onion, sliced into thin half moons",
+"weight": 110
+},
+{
+"text": "7. 1 bunch green onions/scallions, chopped (green and white parts)",
+"weight": 113
+},
+{
+"text": "8. 1 tablespoon red chilli flakes",
+"weight": 5.300000190734863
+},
+{
+"text": "9. 1/4 cup Asian Sesame Oil",
+"weight": 54.5
+},
+{
+"text": "10. 4 tablespoons dark soy sauce (See Note below)",
+"weight": 64
+},
+{
+"text": "11. 2 tablespoons vinegar",
+"weight": 29.799999237060547
+},
+{
+"text": "salt",
+"weight": 9.155831359863281
+},
+{
+"text": "1. about 6-8 cloves of garlic (when processed it should be about 1/6 cup)",
+"weight": 21
+},
+{
+"text": "2. 3/4 inch piece fresh ginger, grated",
+"weight": 15
+},
+{
+"text": "3. 2 tablespoons hot/chili sauce, like Sriracha or the Green Chili Sauce that we usually use in India",
+"weight": 34.61710739135742
+},
+{
+"text": "4. a little less than 1/4 cup ketchup or tomato paste",
+"weight": 123
+},
+{
+"text": "5. 3 teaspoons white sesame seeds",
+"weight": 9.129786491394043
+}
+],
+"calories": 2489.1397187519074,
+"totalWeight": 1525.9718933105469,
+"totalNutrients": {
+"ENERC_KCAL": {
+"label": "Energy",
+"quantity": 2489.1397187519074,
+"unit": "kcal"
+},
+"FAT": {
+"label": "Fat",
+"quantity": 80.2823513053894,
+"unit": "g"
+},
+"FASAT": {
+"label": "Saturated",
+"quantity": 13.72435945075035,
+"unit": "g"
+},
+"FATRN": {
+"label": "Trans",
+"quantity": 0.244,
+"unit": "g"
+},
+"FAMS": {
+"label": "Monounsaturated",
+"quantity": 28.732337403974533,
+"unit": "g"
+},
+"FAPU": {
+"label": "Polyunsaturated",
+"quantity": 31.549365024118426,
+"unit": "g"
+},
+"CHOCDF": {
+"label": "Carbs",
+"quantity": 373.3007205926895,
+"unit": "g"
+},
+"FIBTG": {
+"label": "Fiber",
+"quantity": 39.45394919395447,
+"unit": "g"
+},
+"SUGAR": {
+"label": "Sugars",
+"quantity": 43.749572497940065,
+"unit": "g"
+},
+"PROCNT": {
+"label": "Protein",
+"quantity": 78.81386885261534,
+"unit": "g"
+},
+"CHOLE": {
+"label": "Cholesterol",
+"quantity": 336,
+"unit": "mg"
+},
+"NA": {
+"label": "Sodium",
+"quantity": 7756.606791908188,
+"unit": "mg"
+},
+"CA": {
+"label": "Calcium",
+"quantity": 590.0982395322418,
+"unit": "mg"
+},
+"MG": {
+"label": "Magnesium",
+"quantity": 487.4301620676422,
+"unit": "mg"
+},
+"K": {
+"label": "Potassium",
+"quantity": 3727.7836684626773,
+"unit": "mg"
+},
+"FE": {
+"label": "Iron",
+"quantity": 25.70251255176468,
+"unit": "mg"
+},
+"ZN": {
+"label": "Zinc",
+"quantity": 11.595146660923001,
+"unit": "mg"
+},
+"P": {
+"label": "Phosphorus",
+"quantity": 1491.95075340271,
+"unit": "mg"
+},
+"VITA_RAE": {
+"label": "Vitamin A",
+"quantity": 1609.0340704822538,
+"unit": "µg"
+},
+"VITC": {
+"label": "Vitamin C",
+"quantity": 260.9446873283386,
+"unit": "mg"
+},
+"THIA": {
+"label": "Thiamin (B1)",
+"quantity": 5.2720972584247585,
+"unit": "mg"
+},
+"RIBF": {
+"label": "Riboflavin (B2)",
+"quantity": 2.562919549560547,
+"unit": "mg"
+},
+"NIA": {
+"label": "Niacin (B3)",
+"quantity": 42.671079094944,
+"unit": "mg"
+},
+"VITB6A": {
+"label": "Vitamin B6",
+"quantity": 2.7433876897811884,
+"unit": "mg"
+},
+"FOLDFE": {
+"label": "Folate equivalent (total)",
+"quantity": 1799.8381827640537,
+"unit": "µg"
+},
+"FOLFD": {
+"label": "Folate (food)",
+"quantity": 435.8381827640533,
+"unit": "µg"
+},
+"FOLAC": {
+"label": "Folic acid",
+"quantity": 804,
+"unit": "µg"
+},
+"VITB12": {
+"label": "Vitamin B12",
+"quantity": 1.16,
+"unit": "µg"
+},
+"VITD": {
+"label": "Vitamin D",
+"quantity": 1.2,
+"unit": "µg"
+},
+"TOCPHA": {
+"label": "Vitamin E",
+"quantity": 9.798800485038756,
+"unit": "mg"
+},
+"VITK1": {
+"label": "Vitamin K",
+"quantity": 329.31698973751065,
+"unit": "µg"
+}
+},
+"totalDaily": {
+"ENERC_KCAL": {
+"label": "Energy",
+"quantity": 124.45698593759536,
+"unit": "%"
+},
+"FAT": {
+"label": "Fat",
+"quantity": 123.51130970059909,
+"unit": "%"
+},
+"FASAT": {
+"label": "Saturated",
+"quantity": 68.62179725375175,
+"unit": "%"
+},
+"CHOCDF": {
+"label": "Carbs",
+"quantity": 124.43357353089651,
+"unit": "%"
+},
+"FIBTG": {
+"label": "Fiber",
+"quantity": 157.8157967758179,
+"unit": "%"
+},
+"PROCNT": {
+"label": "Protein",
+"quantity": 157.6277377052307,
+"unit": "%"
+},
+"CHOLE": {
+"label": "Cholesterol",
+"quantity": 112,
+"unit": "%"
+},
+"NA": {
+"label": "Sodium",
+"quantity": 323.1919496628412,
+"unit": "%"
+},
+"CA": {
+"label": "Calcium",
+"quantity": 59.00982395322418,
+"unit": "%"
+},
+"MG": {
+"label": "Magnesium",
+"quantity": 121.85754051691055,
+"unit": "%"
+},
+"K": {
+"label": "Potassium",
+"quantity": 106.50810481321935,
+"unit": "%"
+},
+"FE": {
+"label": "Iron",
+"quantity": 142.79173639869268,
+"unit": "%"
+},
+"ZN": {
+"label": "Zinc",
+"quantity": 77.30097773948667,
+"unit": "%"
+},
+"P": {
+"label": "Phosphorus",
+"quantity": 213.13582191467285,
+"unit": "%"
+},
+"VITA_RAE": {
+"label": "Vitamin A",
+"quantity": 178.78156338691707,
+"unit": "%"
+},
+"VITC": {
+"label": "Vitamin C",
+"quantity": 434.90781221389767,
+"unit": "%"
+},
+"THIA": {
+"label": "Thiamin (B1)",
+"quantity": 351.4731505616506,
+"unit": "%"
+},
+"RIBF": {
+"label": "Riboflavin (B2)",
+"quantity": 150.75997350356158,
+"unit": "%"
+},
+"NIA": {
+"label": "Niacin (B3)",
+"quantity": 213.35539547471998,
+"unit": "%"
+},
+"VITB6A": {
+"label": "Vitamin B6",
+"quantity": 137.1693844890594,
+"unit": "%"
+},
+"FOLDFE": {
+"label": "Folate equivalent (total)",
+"quantity": 449.95954569101343,
+"unit": "%"
+},
+"VITB12": {
+"label": "Vitamin B12",
+"quantity": 19.333333333333332,
+"unit": "%"
+},
+"VITD": {
+"label": "Vitamin D",
+"quantity": 0.3,
+"unit": "%"
+},
+"TOCPHA": {
+"label": "Vitamin E",
+"quantity": 48.994002425193784,
+"unit": "%"
+},
+"VITK1": {
+"label": "Vitamin K",
+"quantity": 411.64623717188834,
+"unit": "%"
+}
+},
+"digest": [
+{
+"label": "Fat",
+"tag": "FAT",
+"schemaOrgTag": "fatContent",
+"total": 80.2823513053894,
+"hasRDI": true,
+"daily": 123.51130970059909,
+"unit": "g",
+"sub": [
+{
+"label": "Saturated",
+"tag": "FASAT",
+"schemaOrgTag": "saturatedFatContent",
+"total": 13.72435945075035,
+"hasRDI": true,
+"daily": 68.62179725375175,
+"unit": "g"
+},
+{
+"label": "Trans",
+"tag": "FATRN",
+"schemaOrgTag": "transFatContent",
+"total": 0.244,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+},
+{
+"label": "Monounsaturated",
+"tag": "FAMS",
+"schemaOrgTag": null,
+"total": 28.732337403974533,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+},
+{
+"label": "Polyunsaturated",
+"tag": "FAPU",
+"schemaOrgTag": null,
+"total": 31.549365024118426,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+}
+]
+},
+{
+"label": "Carbs",
+"tag": "CHOCDF",
+"schemaOrgTag": "carbohydrateContent",
+"total": 373.3007205926895,
+"hasRDI": true,
+"daily": 124.43357353089651,
+"unit": "g",
+"sub": [
+{
+"label": "Carbs (net)",
+"tag": "CHOCDF.net",
+"schemaOrgTag": null,
+"total": 333.84677139873503,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+},
+{
+"label": "Fiber",
+"tag": "FIBTG",
+"schemaOrgTag": "fiberContent",
+"total": 39.45394919395447,
+"hasRDI": true,
+"daily": 157.8157967758179,
+"unit": "g"
+},
+{
+"label": "Sugars",
+"tag": "SUGAR",
+"schemaOrgTag": "sugarContent",
+"total": 43.749572497940065,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+},
+{
+"label": "Sugars, added",
+"tag": "SUGAR.added",
+"schemaOrgTag": null,
+"total": 0,
+"hasRDI": false,
+"daily": 0,
+"unit": "g"
+}
+]
+},
+{
+"label": "Protein",
+"tag": "PROCNT",
+"schemaOrgTag": "proteinContent",
+"total": 78.81386885261534,
+"hasRDI": true,
+"daily": 157.6277377052307,
+"unit": "g"
+},
+{
+"label": "Cholesterol",
+"tag": "CHOLE",
+"schemaOrgTag": "cholesterolContent",
+"total": 336,
+"hasRDI": true,
+"daily": 112,
+"unit": "mg"
+},
+{
+"label": "Sodium",
+"tag": "NA",
+"schemaOrgTag": "sodiumContent",
+"total": 7756.606791908188,
+"hasRDI": true,
+"daily": 323.1919496628412,
+"unit": "mg"
+},
+{
+"label": "Calcium",
+"tag": "CA",
+"schemaOrgTag": null,
+"total": 590.0982395322418,
+"hasRDI": true,
+"daily": 59.00982395322418,
+"unit": "mg"
+},
+{
+"label": "Magnesium",
+"tag": "MG",
+"schemaOrgTag": null,
+"total": 487.4301620676422,
+"hasRDI": true,
+"daily": 121.85754051691055,
+"unit": "mg"
+},
+{
+"label": "Potassium",
+"tag": "K",
+"schemaOrgTag": null,
+"total": 3727.7836684626773,
+"hasRDI": true,
+"daily": 106.50810481321935,
+"unit": "mg"
+},
+{
+"label": "Iron",
+"tag": "FE",
+"schemaOrgTag": null,
+"total": 25.70251255176468,
+"hasRDI": true,
+"daily": 142.79173639869268,
+"unit": "mg"
+},
+{
+"label": "Zinc",
+"tag": "ZN",
+"schemaOrgTag": null,
+"total": 11.595146660923001,
+"hasRDI": true,
+"daily": 77.30097773948667,
+"unit": "mg"
+},
+{
+"label": "Phosphorus",
+"tag": "P",
+"schemaOrgTag": null,
+"total": 1491.95075340271,
+"hasRDI": true,
+"daily": 213.13582191467285,
+"unit": "mg"
+},
+{
+"label": "Vitamin A",
+"tag": "VITA_RAE",
+"schemaOrgTag": null,
+"total": 1609.0340704822538,
+"hasRDI": true,
+"daily": 178.78156338691707,
+"unit": "µg"
+},
+{
+"label": "Vitamin C",
+"tag": "VITC",
+"schemaOrgTag": null,
+"total": 260.9446873283386,
+"hasRDI": true,
+"daily": 434.90781221389767,
+"unit": "mg"
+},
+{
+"label": "Thiamin (B1)",
+"tag": "THIA",
+"schemaOrgTag": null,
+"total": 5.2720972584247585,
+"hasRDI": true,
+"daily": 351.4731505616506,
+"unit": "mg"
+},
+{
+"label": "Riboflavin (B2)",
+"tag": "RIBF",
+"schemaOrgTag": null,
+"total": 2.562919549560547,
+"hasRDI": true,
+"daily": 150.75997350356158,
+"unit": "mg"
+},
+{
+"label": "Niacin (B3)",
+"tag": "NIA",
+"schemaOrgTag": null,
+"total": 42.671079094944,
+"hasRDI": true,
+"daily": 213.35539547471998,
+"unit": "mg"
+},
+{
+"label": "Vitamin B6",
+"tag": "VITB6A",
+"schemaOrgTag": null,
+"total": 2.7433876897811884,
+"hasRDI": true,
+"daily": 137.1693844890594,
+"unit": "mg"
+},
+{
+"label": "Folate equivalent (total)",
+"tag": "FOLDFE",
+"schemaOrgTag": null,
+"total": 1799.8381827640537,
+"hasRDI": true,
+"daily": 449.95954569101343,
+"unit": "µg"
+},
+{
+"label": "Folate (food)",
+"tag": "FOLFD",
+"schemaOrgTag": null,
+"total": 435.8381827640533,
+"hasRDI": false,
+"daily": 0,
+"unit": "µg"
+},
+{
+"label": "Folic acid",
+"tag": "FOLAC",
+"schemaOrgTag": null,
+"total": 804,
+"hasRDI": false,
+"daily": 0,
+"unit": "µg"
+},
+{
+"label": "Vitamin B12",
+"tag": "VITB12",
+"schemaOrgTag": null,
+"total": 1.16,
+"hasRDI": true,
+"daily": 19.333333333333332,
+"unit": "µg"
+},
+{
+"label": "Vitamin D",
+"tag": "VITD",
+"schemaOrgTag": null,
+"total": 1.2,
+"hasRDI": true,
+"daily": 0.3,
+"unit": "µg"
+},
+{
+"label": "Vitamin E",
+"tag": "TOCPHA",
+"schemaOrgTag": null,
+"total": 9.798800485038756,
+"hasRDI": true,
+"daily": 48.994002425193784,
+"unit": "mg"
+},
+{
+"label": "Vitamin K",
+"tag": "VITK1",
+"schemaOrgTag": null,
+"total": 329.31698973751065,
+"hasRDI": true,
+"daily": 411.64623717188834,
+"unit": "µg"
+}
+]
+},
+"bookmarked": false,
+"bought": false
+},
+{}
+]
+}
