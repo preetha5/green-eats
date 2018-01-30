@@ -2,51 +2,49 @@
 const URL_RECIPE = "https://api.edamam.com/search";
 const URL_CITIES = "https://developers.zomato.com/api/v2.1/cities";
 const URL_RESTAURANTS = "https://developers.zomato.com/api/v2.1/search";
-const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?";
+const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?"; 
 const restaurant_thumb = "images/restaurant_thumb.png";  
 let queryString = '';
-//let cityQuery = '';
 let start = 0;
 let end = 10;
 let total = 0;
-// let image = '';
 
-// function getFlickrImage(name){
-//     debugger;
-//     console.log(name);
-//     let flickrQuery = {
-//         'method': "flickr.photos.search",
-//         'text': name +" "+ queryString,
-//         'content_type': 1,
-//         'sort': "relevance",
-//         'format': "json",
-//         'per_page': 5,
-//         "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
-//         };
-//     console.log(flickrQuery);
-//     $.getJSON(URL_FLICKR, flickrQuery, function(data){
-//         console.log(data);
-//         photoId = data.photos.photo[0].id;
-//         console.log("photo is "+ photoId);
-//         let photoQuery = {
-//             'method': "flickr.photos.getSizes",
-//             'photo_id':photoId,
-//             'format': "json",
-//             "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
-//         };
-//         $.getJSON(URL_FLICKR, photoQuery, function(data){
-//             console.log(data);
-//             path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
-//             console.log("inside flickr func "+path);
-//             debugger;
-//             $("img[alt='"+name+"']").css("background-color", "red");
-//         });
-//     });
-// }
+function getFlickrImage(name){
+    console.log(name);
+    let flickrQuery = {
+        'method': "flickr.photos.search",
+        'text': name +" "+ queryString,
+        'content_type': 1,
+        'sort': "relevance",
+        'format': "json",
+        'per_page': 5,
+        "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
+        };
+    console.log(flickrQuery);
+    $.getJSON(URL_FLICKR, flickrQuery, function(data){
+        console.log(data);
+        photoId = data.photos.photo[0].id;
+        console.log("photo is "+ photoId);
+        let photoQuery = {
+            'method': "flickr.photos.getSizes",
+            'photo_id':photoId,
+            'format': "json",
+            "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
+        };
+        $.getJSON(URL_FLICKR, photoQuery, function(data){
+            console.log(data);
+            path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
+            console.log("inside flickr func "+path);
+            debugger;
+            $("img[alt='"+name+"']").css("background-color", "red");
+            $("img[alt='"+name+"']").attr("src", path);
+        });
+    });
+}
 
 function renderRestaurant(item){
     let restaurantName = item.restaurant.name;
-    let restaurantImage = (item.restaurant.thumb) ? item.restaurant.thumb : restaurant_thumb;
+    let restaurantImage = (item.restaurant.thumb) ? item.restaurant.thumb : getFlickrImage(restaurantName);
     let restaurantLocation = item.restaurant.location.address;
     let restaurantURL = item.restaurant.url;
     let rating = item.restaurant.user_rating.aggregate_rating;
