@@ -5,7 +5,6 @@ const URL_RESTAURANTS = "https://developers.zomato.com/api/v2.1/search";
 const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?"; 
 const restaurant_thumb = "images/restaurant_thumb.png";  
 let queryString = '';
-//let cityQuery = '';
 let start = 0;
 let end = 10;
 let total = 0;
@@ -49,9 +48,6 @@ function renderRestaurant(item){
     let restaurantLocation = item.restaurant.location.address;
     let restaurantURL = item.restaurant.url;
     let rating = item.restaurant.user_rating.aggregate_rating;
-    console.log(restaurantName);
-    console.log(restaurantLocation);
-    console.log(restaurantImage);
     return `
         <li class="restaurantItem">
             <a href="${restaurantURL}">
