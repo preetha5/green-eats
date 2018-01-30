@@ -1,0 +1,24 @@
+green eats
+Key:
+9d50e113cdfc420d07f84a3a2da5d4ef
+
+Secret:
+253f01137a0f89d1
+
+endpoint : https://api.flickr.com/services/rest
+Query for string search to get list of photoid.
+
+https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=9d50e113cdfc420d07f84a3a2da5d4ef&text=sandiego%20el%20zarape%20restaurant&content_type=1&sort=relevance&format=json&per_page=5
+
+Query by photo ID
+
+https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=9d50e113cdfc420d07f84a3a2da5d4ef&photo_id=13173385135
+
+
+RESPONSE:
+<rsp stat="ok">
+<sizes canblog="0" canprint="0" candownload="0">
+<size label="Square" width="75" height="75" source="https://farm5.staticflickr.com/4543/37928278154_2b9865c93d_s.jpg" url="https://www.flickr.com/photos/zabbey/37928278154/sizes/sq/" media="photo"/>
+<size label="Large Square" width="150" height="150" source="https://farm5.staticflickr.com/4543/37928278154_2b9865c93d_q.jpg" url="https://www.flickr.com/photos/zabbey/37928278154/sizes/q/" media="photo"/>
+</sizes>
+</rsp>
