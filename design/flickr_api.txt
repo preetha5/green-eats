@@ -12,7 +12,8 @@ https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=9d50e1
 
 Query by photo ID
 
-https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=9d50e113cdfc420d07f84a3a2da5d4ef&photo_id=13173385135
+https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=9d50e113cdfc420d07f84a3a2da5d4ef&format=json&photo_id=8203757069
+
 
 
 RESPONSE:
