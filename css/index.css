@@ -139,7 +139,7 @@ ul > li {
     font-size: 16px;
     background-color: #ececec;
     padding: 30px 0;
-    width: 50%;
+    width: 82%;
     margin: 0 auto 1em;
 }
 
@@ -168,4 +168,21 @@ ul > li {
     #slider{
         height: 190px;
     }
+}
+
+@media screen and (min-width:768px){
+    .restaurantItem img{
+        width: 150px;
+    }
+    /* 2 column layouts for large screens */
+    .pagination{
+        clear: both;
+    }
+
+    .recipeItem, .restaurantItem{
+        width: 45%;
+        display: inline-block;
+        margin: 1em 2%;
+    }
+
 }

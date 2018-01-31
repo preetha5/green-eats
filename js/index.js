@@ -23,7 +23,6 @@ function getFlickrImage(name){
     console.log(flickrQuery);
     $.getJSON(URL_FLICKR, flickrQuery, function(data){
         console.log(data);
-        debugger;
         photoId = data.photos.photo[0].id;
         console.log("photo is "+ photoId);
         if(!photoId){
@@ -102,8 +101,6 @@ function processcityCB(cityInfo){
             <button class="btn_load ${linkNext}">next</button>
         </div>`;
         $(".results").append(restaurants);
-        debugger; 
-        $("img[alt='Richard Walker's Pancake House']").css("background-color", "red")  ; 
     });
 }
 
