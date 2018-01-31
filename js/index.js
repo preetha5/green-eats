@@ -25,18 +25,23 @@ function getFlickrImage(name){
         console.log(data);
         debugger;
         photoId = data.photos.photo[0].id;
-        //console.log("photo is "+ photoId);
+        console.log("photo is "+ photoId);
+        if(!photoId){
+            $("img[alt='"+name+"']").attr("src", restaurant_thumb);
+            return;
+        }
+
         let photoQuery = {
             'method': "flickr.photos.getSizes",
             'photo_id':photoId,
             'format': "json",
             "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
         };
-        $.getJSON(URL_FLICKR, photoQuery, function(photos){
-            debugger;
-            console.log(photos);
-            path  = (photos.sizes.size[1].source)? (photos.sizes.size[1].source):restaurant_thumb;
+        $.getJSON(URL_FLICKR, photoQuery, function(data){
+            console.log(data);
+            path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
             console.log("inside flickr func "+path);
+            //$("img[alt='"+name+"']").css("background-color", "red");
             $("img[alt='"+name+"']").attr("src", path);
         });
     });
@@ -45,6 +50,9 @@ function getFlickrImage(name){
 function renderRestaurant(item){
     let restaurantName = item.restaurant.name;
     let restaurantImage = (item.restaurant.thumb) ? item.restaurant.thumb : getFlickrImage(restaurantName);
+    if (!restaurantImage){
+        restaurantImage = restaurant_thumb;
+    }
     let restaurantLocation = item.restaurant.location.address;
     let restaurantURL = item.restaurant.url;
     let rating = item.restaurant.user_rating.aggregate_rating;
@@ -93,7 +101,9 @@ function processcityCB(cityInfo){
             <button class="btn_prev ${linkPrev}">prev</button>
             <button class="btn_load ${linkNext}">next</button>
         </div>`;
-        $(".results").append(restaurants);    
+        $(".results").append(restaurants);
+        debugger; 
+        $("img[alt='Richard Walker's Pancake House']").css("background-color", "red")  ; 
     });
 }
 
