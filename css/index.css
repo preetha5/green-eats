@@ -5,13 +5,14 @@
 }
 
 .box-shadow{
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 70px rgba(0,0,0,0.4);
 }
 body{
     max-width: 960px;
     margin: 0 auto;
     background-color: greenyellow;
-    padding: 20px;
+    /* padding: 20px; */
+    line-height: 1.2;
 }
 
 /*BEGIN:  Styles for the landing screen slider */
@@ -21,8 +22,7 @@ body{
     width: 80%; 
     height: 300px; 
     padding: 10px; 
-    /* box-shadow: 0 0 20px rgba(0,0,0,0.4);  */
-}
+  }
 
 #slider h2{
     text-align: center;
@@ -35,7 +35,7 @@ body{
     right: 10px; 
     bottom: 10px;
     color:black;
-    line-height: 1.2;
+    padding: 0 20px;
 }
 
 .slide h2{
@@ -43,8 +43,9 @@ body{
 }
 /*END:  Styles for the landing screen slider */
 
+/* BEGIN : Header and search form section styles */
 header{
-    margin-bottom: .5em;
+    margin-bottom: 2.5em;
     text-align: center;
 }
 .selection{
@@ -85,12 +86,32 @@ main{
 ul > li {
     margin-left: 10px;
 }
+
+/* END : Header and search form section styles */
+
 /* BEGIN: Styles for the Info Page */
+.infoPage{
+    margin: 0 20px;
+}
+
 .facts, .humour, .faq{
     padding:20px;
     margin-bottom: 1em;
 }
 
+.question{
+    font-weight: bold;
+}
+
+.content h3{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: .5em;
+}
+
+.content ul li{
+    margin-bottom: .8em;
+}
 #back{
     text-align: center;
     margin: .5em 0;
@@ -118,7 +139,8 @@ ul > li {
     font-size: 16px;
     background-color: #ececec;
     padding: 30px 0;
-    margin-bottom: .5em;
+    width: 50%;
+    margin: 0 auto 1em;
 }
 
 .recipeItem img{
@@ -136,3 +158,14 @@ ul > li {
 /* END: Styles for the results obtained by search */
 
 /* MEDIA QUERIES */
+@media screen and (min-width:430px){
+    #slider{
+        height: 230px;
+    }
+}
+
+@media screen and (min-width:600px){
+    #slider{
+        height: 190px;
+    }
+}

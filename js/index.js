@@ -23,20 +23,20 @@ function getFlickrImage(name){
     console.log(flickrQuery);
     $.getJSON(URL_FLICKR, flickrQuery, function(data){
         console.log(data);
+        debugger;
         photoId = data.photos.photo[0].id;
-        console.log("photo is "+ photoId);
+        //console.log("photo is "+ photoId);
         let photoQuery = {
             'method': "flickr.photos.getSizes",
             'photo_id':photoId,
             'format': "json",
             "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
         };
-        $.getJSON(URL_FLICKR, photoQuery, function(data){
-            console.log(data);
-            path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
-            console.log("inside flickr func "+path);
+        $.getJSON(URL_FLICKR, photoQuery, function(photos){
             debugger;
-            $("img[alt='"+name+"']").css("background-color", "red");
+            console.log(photos);
+            path  = (photos.sizes.size[1].source)? (photos.sizes.size[1].source):restaurant_thumb;
+            console.log("inside flickr func "+path);
             $("img[alt='"+name+"']").attr("src", path);
         });
     });
@@ -50,7 +50,7 @@ function renderRestaurant(item){
     let rating = item.restaurant.user_rating.aggregate_rating;
     return `
         <li class="restaurantItem">
-            <a href="${restaurantURL}">
+            <a href="${restaurantURL}" target="_blank">
                 <img src="${restaurantImage}" alt="${restaurantName}" />
             </a>
             <h3>${restaurantName}</h3>
@@ -60,7 +60,7 @@ function renderRestaurant(item){
 }
 
 function processcityCB(cityInfo){
-    console.log(cityInfo);
+    //console.log(cityInfo);
     let total = cityInfo.location_suggestions.length;
     if(total === 0){
         $(".results").empty();
@@ -110,19 +110,22 @@ function renderRecipes(item){
     let recipeURL = item.recipe.url;
     let recipeName = item.recipe.label;
     let recipeImage = item.recipe.image;
+    let calories = Math.floor(item.recipe.calories);
+    let yield = item.recipe.yield;
     let template = `
         <li class="recipeItem">
-            <a href="${recipeURL}">
+            <a href="${recipeURL}" target="_blank">
                 <img src="${recipeImage}" alt="${recipeName}" />
             </a>
-            <h3>${recipeName}</h3>
+            <h4>${recipeName}</h4>
+            <p>Calories : ${calories}, Yields : ${yield}</p>
         </li>`;
     return template;
 
 }
 
 function processRecipeCB(data){
-    console.log(data);
+    //console.log(data);
     total =  data.count;
     //Return if no results found
     if(total === 0){
@@ -133,7 +136,7 @@ function processRecipeCB(data){
     }
     let linkPrev =  (start === 0) ? 'hideLink' : '';
     let linkNext = (end>=total) ? 'hideLink' : '';
-    console.log("end : "+ end + "total : " + total);
+    //console.log("end : "+ end + "total : " + total);
     let recipes = data.hits.map(item => renderRecipes(item));
     //Empty and append to the results ul
     $(".results").empty();
@@ -212,16 +215,15 @@ function handleSearchQuery(){
 function handleRadioSelection(){
     $(".selection input[type='radio']").on('change', function(e){
         let val = $(this).val();
-        console.log(val);
         let searchboxHTML = '';
         if(val === 'cook'){
             searchboxHTML = `
-            <input type="textarea" placeholder="enter comma seperated keywords" class="search_query"/>
+            <input type="textarea" placeholder="ingredients, recipe name or cuisine" class="search_query" required/>
             <button type="submit"> Search </button>`;
         } else
         if(val === 'eat-out'){
             searchboxHTML = `
-            <input type="textarea" placeholder="Type a city name" class="search_query" autocomplete="off"/>
+            <input type="textarea" placeholder="Type a city name" class="search_query" required/>
             <button type="submit"> Search </button>`;
         }
         //empty and append the search box to the DOM
