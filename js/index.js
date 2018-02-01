@@ -2,7 +2,7 @@
 const URL_RECIPE = "https://api.edamam.com/search";
 const URL_CITIES = "https://developers.zomato.com/api/v2.1/cities";
 const URL_RESTAURANTS = "https://developers.zomato.com/api/v2.1/search";
-const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?";
+const URL_FLICKR = "https://api.flickr.com/services/rest?jsoncallback=?"; 
 const restaurant_thumb = "images/restaurant_thumb.png";  
 let queryString = '';
 let start = 0;
@@ -15,7 +15,6 @@ function initAutocomplete() {
     console.log(input);
     // Create the autocomplete object, restricting the search to geographical
     // location types.
-    debugger;
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
         {types: ['geocode']});
@@ -28,21 +27,6 @@ function initAutocomplete() {
 function fillInAddress(){
     // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
-
-  for (var component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }
-
-  // Get each component of the address from the place details
-  // and fill the corresponding field on the form.
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
-    }
-  }
 }
 // Bias the autocomplete object to the user's geographical location,
       // as supplied by the browser's 'navigator.geolocation' object.
@@ -62,16 +46,51 @@ function fillInAddress(){
         }
       }
 // END: GOOGLE AUTOCOMPLETE FOR CITIES
+function getFlickrImage(name){
+    console.log(name);
+    let flickrQuery = {
+        'method': "flickr.photos.search",
+        'text': name +" "+ queryString,
+        'content_type': 1,
+        'sort': "relevance",
+        'format': "json",
+        'per_page': 5,
+        "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
+        };
+    $.getJSON(URL_FLICKR, flickrQuery, function(data){
+        if(!data.photos.photo[0]){
+            console.log("no photo found for "+ name );
+            $('img[alt="'+name+'"]').attr("src", restaurant_thumb);
+            return;
+        }
+        photoId = data.photos.photo[0].id;
+        let photoQuery = {
+            'method': "flickr.photos.getSizes",
+            'photo_id':photoId,
+            'format': "json",
+            "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
+        };
+        $.getJSON(URL_FLICKR, photoQuery, function(data){
+            path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
+            console.log("inside flickr func "+path);
+            console.log('img[alt="'+name+'"]');
+            $('img[alt="'+name+'"]').attr("src", path);
+        });
+    });
+}
 
 function renderRestaurant(item){
     let restaurantName = item.restaurant.name;
-    let restaurantImage = (item.restaurant.thumb) ? item.restaurant.thumb : restaurant_thumb;
+    let restaurantImage = (item.restaurant.thumb) ? item.restaurant.thumb : getFlickrImage(restaurantName);
+    if (!restaurantImage){
+        restaurantImage = restaurant_thumb;
+    }
     let restaurantLocation = item.restaurant.location.address;
     let restaurantURL = item.restaurant.url;
     let rating = item.restaurant.user_rating.aggregate_rating;
     return `
         <li class="restaurantItem">
-            <a href="${restaurantURL}">
+            <a href="${restaurantURL}" target="_blank">
                 <img src="${restaurantImage}" alt="${restaurantName}" />
             </a>
             <h3>${restaurantName}</h3>
@@ -81,7 +100,7 @@ function renderRestaurant(item){
 }
 
 function processcityCB(cityInfo){
-    console.log(cityInfo);
+    //console.log(cityInfo);
     let total = cityInfo.location_suggestions.length;
     if(total === 0){
         $(".results").empty();
@@ -114,7 +133,7 @@ function processcityCB(cityInfo){
             <button class="btn_prev ${linkPrev}">prev</button>
             <button class="btn_load ${linkNext}">next</button>
         </div>`;
-        $(".results").append(restaurants);    
+        $(".results").append(restaurants);
     });
 }
 
@@ -132,19 +151,22 @@ function renderRecipes(item){
     let recipeURL = item.recipe.url;
     let recipeName = item.recipe.label;
     let recipeImage = item.recipe.image;
+    let calories = Math.floor(item.recipe.calories);
+    let yield = item.recipe.yield;
     let template = `
         <li class="recipeItem">
-            <a href="${recipeURL}">
+            <a href="${recipeURL}" target="_blank">
                 <img src="${recipeImage}" alt="${recipeName}" />
             </a>
-            <h3>${recipeName}</h3>
+            <h4>${recipeName}</h4>
+            <p>Calories : ${calories}, Yields : ${yield}</p>
         </li>`;
     return template;
 
 }
 
 function processRecipeCB(data){
-    console.log(data);
+    //console.log(data);
     total =  data.count;
     //Return if no results found
     if(total === 0){
@@ -155,7 +177,7 @@ function processRecipeCB(data){
     }
     let linkPrev =  (start === 0) ? 'hideLink' : '';
     let linkNext = (end>=total) ? 'hideLink' : '';
-    console.log("end : "+ end + "total : " + total);
+    //console.log("end : "+ end + "total : " + total);
     let recipes = data.hits.map(item => renderRecipes(item));
     //Empty and append to the results ul
     $(".results").empty();
@@ -234,21 +256,24 @@ function handleSearchQuery(){
 function handleRadioSelection(){
     $(".selection input[type='radio']").on('change', function(e){
         let val = $(this).val();
-        console.log(val);
         let searchboxHTML = '';
         if(val === 'cook'){
             searchboxHTML = `
-            <input type="textarea" placeholder="enter comma seperated keywords" class="search_query"/>
+            <input type="textarea" placeholder="ingredients, recipe name or cuisine" class="search_query" required/>
             <button type="submit"> Search </button>`;
         } else
         if(val === 'eat-out'){
             searchboxHTML = `
-            <input type="textarea" placeholder="Type a city name" class="search_query" autocomplete="off"/>
+            <input type="text" placeholder="Type a city name" class="search_query" 
+            id="autocomplete" required />
             <button type="submit"> Search </button>`;
         }
         //empty and append the search box to the DOM
         $('.searchBox').empty();
         $('.searchBox').append(searchboxHTML);
+        //Call the autocomplete cities API to load
+        $.getScript("https://maps.googleapis.com/maps/api/js?\
+        key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete");
     })
 }
 
