@@ -9,6 +9,43 @@ let start = 0;
 let end = 10;
 let total = 0;
 
+// BEGIN: GOOGLE AUTOCOMPLETE FOR CITIES
+function initAutocomplete() {
+    let input = $(".search_query");
+    console.log(input);
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+        {types: ['geocode']});
+    console.log(autocomplete);
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress(){
+    // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+}
+// Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+// END: GOOGLE AUTOCOMPLETE FOR CITIES
 function getFlickrImage(name){
     console.log(name);
     let flickrQuery = {
@@ -20,16 +57,13 @@ function getFlickrImage(name){
         'per_page': 5,
         "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
         };
-    console.log(flickrQuery);
     $.getJSON(URL_FLICKR, flickrQuery, function(data){
-        console.log(data);
-        photoId = data.photos.photo[0].id;
-        console.log("photo is "+ photoId);
-        if(!photoId){
-            $("img[alt='"+name+"']").attr("src", restaurant_thumb);
+        if(!data.photos.photo[0]){
+            console.log("no photo found for "+ name );
+            $('img[alt="'+name+'"]').attr("src", restaurant_thumb);
             return;
         }
-
+        photoId = data.photos.photo[0].id;
         let photoQuery = {
             'method': "flickr.photos.getSizes",
             'photo_id':photoId,
@@ -37,11 +71,10 @@ function getFlickrImage(name){
             "api_key": "9d50e113cdfc420d07f84a3a2da5d4ef",
         };
         $.getJSON(URL_FLICKR, photoQuery, function(data){
-            console.log(data);
             path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
             console.log("inside flickr func "+path);
-            //$("img[alt='"+name+"']").css("background-color", "red");
-            $("img[alt='"+name+"']").attr("src", path);
+            console.log('img[alt="'+name+'"]');
+            $('img[alt="'+name+'"]').attr("src", path);
         });
     });
 }
@@ -114,6 +147,7 @@ function searchRestaurants(){
     }
 
 function renderRecipes(item){
+    console.log(item);
     let recipeURL = item.recipe.url;
     let recipeName = item.recipe.label;
     let recipeImage = item.recipe.image;
@@ -230,12 +264,16 @@ function handleRadioSelection(){
         } else
         if(val === 'eat-out'){
             searchboxHTML = `
-            <input type="textarea" placeholder="Type a city name" class="search_query" required/>
+            <input type="text" placeholder="Type a city name" class="search_query" 
+            id="autocomplete" required />
             <button type="submit"> Search </button>`;
         }
         //empty and append the search box to the DOM
         $('.searchBox').empty();
         $('.searchBox').append(searchboxHTML);
+        //Call the autocomplete cities API to load
+        $.getScript("https://maps.googleapis.com/maps/api/js?\
+        key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete");
     })
 }
 
