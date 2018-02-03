@@ -45,7 +45,9 @@ function fillInAddress(){
           });
         }
       }
-// END: GOOGLE AUTOCOMPLETE FOR CITIES
+// END: GOOGLE AUTOCOMPLETE FOR CITIES SEARCH
+
+//Look for restaurant image on flickr if Zomato does not give one
 function getFlickrImage(name){
     console.log(name);
     let flickrQuery = {
@@ -166,7 +168,7 @@ function renderRecipes(item){
 }
 
 function processRecipeCB(data){
-    //console.log(data);
+    console.log(data);
     total =  data.count;
     //Return if no results found
     if(total === 0){
@@ -277,20 +279,36 @@ function handleRadioSelection(){
     })
 }
 
-function renderSlider(){
-    $("#slider > .slide:gt(0)").hide();
-    setInterval(function() { 
-    $('#slider > .slide:first')
+let slideIndex = 1;
+
+function currentSlide(n){
+    showSlides(n);
+}
+
+function showSlides(n){
+    let slides  = $(".slide");
+    $('.slide[n]')
         .fadeOut(1000)
         .next()
         .fadeIn(1000)
         .end()
         .appendTo('#slider');
-    },  10000);
+}
+
+function renderSlider(){
+    $("#slider > .slide:gt(0)").hide();
+    let timer = setInterval(showSlides(0), 10000);
+    $('#slider').hover(function(){
+        clearInterval(timer)
+    }, function (){
+        timer = setInterval(showSlides, 10000);
+    });
+
 }
 
 function launchApp(){
-    renderSlider();
+    //renderSlider();
+   // $('#myCarousel').carousel();
     handleRadioSelection();
     handleSearchQuery();
     handleNextBtn();

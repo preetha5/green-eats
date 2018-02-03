@@ -1,62 +1,56 @@
-*{
-    box-sizing: border-box;
-    margin:0;
-    padding: 0;
-}
-
-.box-shadow{
-    box-shadow: 0 0 70px rgba(0,0,0,0.4);
-}
-body{
-    max-width: 960px;
-    margin: 0 auto;
-    background-color: greenyellow;
-    /* padding: 20px; */
-    line-height: 1.2;
-}
-
-/*BEGIN:  Styles for the landing screen slider */
-#slider{
-    margin: 25px auto; 
-    position: relative; 
-    width: 80%; 
-    height: 300px; 
-    padding: 10px; 
+* {
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
+  
+  body {
+      background-color: #d6d9d0;
+  }
+  
+  h1 {
+      font-weight: 300;
+      font-size: 2rem;
+      color: #4a7933;
   }
 
-#slider h2{
-    text-align: center;
-}
-
-.slide{
-    position: absolute;
-    top: 50px; 
-    left: 10px; 
-    right: 10px; 
-    bottom: 10px;
-    color:black;
-    padding: 0 20px;
-}
-
-.slide h2{
-    margin-bottom: .5em;
-}
-/*END:  Styles for the landing screen slider */
-
-/* BEGIN : Header and search form section styles */
-header{
-    margin-bottom: 2.5em;
-    text-align: center;
-}
-.selection{
-    margin: 1em;
-}
-
-.selection h2{
-    margin-bottom: .5em;
-}
-
-#form_search label:first-child{
+  h2{
+      font-size: 1.8rem;
+  }
+  h3{
+      font-size: 1.6rem;
+  }
+  
+  #slider{
+    background-color: #a6ea1e;
+    height: 350px;
+    width: 100%;
+    margin: 0 auto 25px;
+    padding-top: 20px;
+  }
+  
+  #slider h2 {
+      text-align: center;
+      font-weight: 200;
+      color: white;
+      font-size: 1.5em;
+  }
+  
+  #slider h3{
+    text-align: left;
+    font-family:sans-serif;
+    padding-bottom: .5em;
+    font-weight: 200;
+    font-size: 1.3em;
+  }
+  
+  .carousel-item{
+   width: 80%;
+   margin-left: 10%;
+   margin-right: 10%;
+   color: #3c4d34;
+  }
+  
+  #form_search label:first-child{
     margin-right: .5em;
 }
 
@@ -65,124 +59,70 @@ label[for="cook"]{
 }
 
 form#form_search{
-    margin: 1em auto;
+    margin: 0 auto;
 }
 
 .search_query{
     height: 30px;
     padding: 5px 10px;
     border-radius: 5px;
-    width: 80%;
-}
-.searchBox{
-    width: 80%;
-    margin: 1em .5em 1em 1em;
-}
-
-main{
-    margin: 1em .5em;
-}
-
-ul > li {
-    margin-left: 10px;
-}
-
-/* END : Header and search form section styles */
-
-/* BEGIN: Styles for the Info Page */
-.infoPage{
-    margin: 0 20px;
-}
-
-.facts, .humour, .faq{
-    padding:20px;
+    width: 100%;
     margin-bottom: 1em;
 }
 
-.question{
-    font-weight: bold;
-}
-
-.content h3{
+header{
+    margin-bottom: 2em;
     text-align: center;
-    font-size: 18px;
-    margin-bottom: .5em;
 }
 
-.content ul li{
-    margin-bottom: .8em;
-}
-#back{
+.infoPage h3{
+    font-size: 1.3rem;
     text-align: center;
-    margin: .5em 0;
-}
-
-/* END: Styles for the Info Page */
-
-/* BEGIN: Styles for the results obtained by search */
-.results{
-    margin: 1em 0;
-}
-
-.pagination{
-    text-align: center;
-    margin-top: .5em;
-}
-
-.pagination button{
-    padding: 5px;
-}
-
-.recipeItem, .restaurantItem{
-    list-style-type: none;
-    text-align: center;
-    font-size: 16px;
-    background-color: #ececec;
-    padding: 30px 0;
-    width: 82%;
-    margin: 0 auto 1em;
-}
-
-.recipeItem img, .restaurantItem img{
-    width:200px;
-}
-
-.noResults{
-    text-align: center;
-    font-weight: bold;
-}
-/* Disable prev link on first page */
-.hideLink{
-    display: none;
-}
-/* END: Styles for the results obtained by search */
-
-/* MEDIA QUERIES */
-@media screen and (min-width:430px){
-    #slider{
-        height: 230px;
-    }
-}
-
-@media screen and (min-width:600px){
-    #slider{
-        height: 190px;
-    }
-}
+  }
+  /* Media Queries */
 
 @media screen and (min-width:768px){
-    .restaurantItem img{
-        width: 150px;
-    }
-    /* 2 column layouts for large screens */
-    .pagination{
-        clear: both;
-    }
 
-    .recipeItem, .restaurantItem{
-        width: 45%;
-        display: inline-block;
-        margin: 1em 2%;
-    }
+h1 {
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    color: #4a7933;
+}
 
+#slider{
+  background-color: #a6ea1e;
+  height: 330px;
+   width: 100%;
+   padding: 20px;
+   margin: 0 auto 25px;
+}
+
+#slider h2 {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 1.75em;
+    padding-bottom: 1em;
+}
+
+#slider h3{
+  text-align: left;
+  font-family:sans-serif;
+  padding-bottom: 1em;
+  font-weight: 200;
+}
+
+.carousel-item{
+ width: 80%;
+ margin-left: 10%;
+ margin-right: 10%;
+ color: #3c4d34;
+}
+
+header{
+    margin-bottom: 2.5em;
+    text-align: center;
+}
 }
