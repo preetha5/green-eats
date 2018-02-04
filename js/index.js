@@ -284,8 +284,7 @@ function handleRadioSelection(){
         $('.searchBox').empty();
         $('.searchBox').append(searchboxHTML);
         //Call the autocomplete cities API to load
-        $.getScript("https://maps.googleapis.com/maps/api/js?\
-        key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete");
+        $.getScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete`);
     })
 }
 
