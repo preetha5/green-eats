@@ -222,7 +222,10 @@ function handlePrevBtn(){
         } else 
         if ($("#eat-out").is(':checked')){
             searchRestaurants();
-        }    
+        }
+        $('html, body').animate({
+            scrollTop: $('#results').offset().top - 20
+        }, 'slow');    
     })
 }
 
@@ -238,7 +241,9 @@ function handleNextBtn(){
         if ($("#eat-out").is(':checked')){
             searchRestaurants();
         }
-        
+        $('html, body').animate({
+            scrollTop: $('#results').offset().top - 20
+        }, 'slow');
     })
 }
 
@@ -315,13 +320,20 @@ function renderSlider(){
 
 }
 
+function handleScrollTop(){
+    $('#back').click(function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('#form_search').offset().top - 20
+        }, 'slow');
+    })
+}
 function launchApp(){
-    //renderSlider();
-   // $('#myCarousel').carousel();
     handleRadioSelection();
     handleSearchQuery();
     handleNextBtn();
-    handlePrevBtn();   
+    handlePrevBtn();
+    handleScrollTop();   
 };
 
 $(launchApp);

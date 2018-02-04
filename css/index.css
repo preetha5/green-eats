@@ -7,9 +7,14 @@
       background-color:white;
   }
   
+  /* Overriding bootstrap styles */
   .container-fluid{
       padding: 0;
   }
+  .row{
+      margin: 0;
+  }
+ /* End: Overriding bootstrap styles */
 
   h1 {
       font-weight: 300;
@@ -98,7 +103,7 @@
 
 /* Begin: Styles for the header/form */
 header{
-    margin: 0 20px;
+    /* margin: 0 20px; */
     text-align: center;
 }
 #form_search label:first-child{
@@ -172,6 +177,11 @@ form#form_search{
     border-radius: 10px;
 }
 
+#back{
+    display: block;
+}
+
+
 #back, .humour > p{
     text-align: center;
 }
@@ -184,24 +194,38 @@ form#form_search{
 /* END: Styles for the info Page */
 
   /* Styles for the results section */
-
+main{
+    
+}
   .results{
     padding: 0;
+    color: white;
     text-align: center;
     padding: 1em 0;
     margin-bottom: 3em;
+    background: url('../images/background1.jpg') no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .recipeItem, .restaurantItem{
     list-style-type: none;
     margin-bottom: 1em;
-    background-color: rgba(180, 195, 167, 1);
+    background-color: rgba(0,0,0,.5);
+    /* background-color: rgba(180, 195, 167, 1); */
     padding: 20px 0 5px;
   }
 
   .noResults{
       font-weight: bold;
   }
+
+  .results h2{
+    text-shadow: 1px 1px 2px black, 9px 7px 1em #4a7933, 0 0 0.2em #4343cc;
+  }
+
   .results h3{
     font-size: 1rem;
     font-weight: bold;
@@ -214,10 +238,15 @@ form#form_search{
     background-color: #4a7933;
     padding: 13px;
     border-radius: 5px;
+    box-shadow: 0px 0px 17px #ffffff;
   }
 
   .pageCtrl .btn_prev{
       margin-right: 2em;
+  }
+
+  .hideLink{
+      display: none;
   }
 
 .btn_prev:hover , .btn_next:hover{
@@ -228,6 +257,8 @@ form#form_search{
       width: 200px;
       height: 200px;
       margin-bottom: .5em;
+      padding: 10px;
+      background-color: white;
   }
   /* Media Queries */
 
@@ -285,9 +316,10 @@ header{
     max-width: 46%;
 }
 .restaurantItem , .recipeItem{
-    width: 50%;
+    width: 40%;
     float: left;
     min-height: 375px;
+    margin: 0 5% 1em;
 }
 
 }
