@@ -67,8 +67,9 @@ form#form_search{
 }
 
 .search_query{
-    height: 30px;
-    padding: 5px 10px;
+    height: 40px;
+    font-size: 1.2em;
+    padding: 0 10px;
     border-radius: 5px;
     width: 100%;
     margin-bottom: 1em;
@@ -110,7 +111,7 @@ header{
   }
   .pageCtrl{
       clear: both;
-      margin: 0 auto;
+      margin: 0 auto 3rem;
   }
 
   .recipeItem img, .restaurantItem img{
@@ -167,6 +168,17 @@ header{
 .restaurantItem , .recipeItem{
     width: 50%;
     float: left;
+    min-height: 350px;
 }
 
+}
+
+@media screen and (min-width:1200px){
+    .restaurantItem, .recipeItem {
+        min-height: 300px;
+    }
+
+    #slider {
+        height: 300px;
+    }
 }
