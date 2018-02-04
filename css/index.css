@@ -20,6 +20,7 @@
       font-size: 1.6rem;
   }
   
+  /* Begin: Styles for the slider/carousel */
   #slider{
     background-color: #a6ea1e;
     height: 350px;
@@ -50,7 +51,10 @@
    color: #3c4d34;
   }
   
-  #form_search label:first-child{
+/* END: Styles for the slider/carousel */
+
+/* Begin: Styles for the header/form */
+#form_search label:first-child{
     margin-right: .5em;
 }
 
@@ -75,9 +79,43 @@ header{
     text-align: center;
 }
 
+/* END: Styles for the header/form */
+
+/* Begin: Styles for the info Page */
 .infoPage h3{
     font-size: 1.3rem;
     text-align: center;
+  }
+
+  #back{
+      text-align: center;
+  }
+
+/* END: Styles for the info Page */
+
+  /* Styles for the results section */
+
+  .results{
+    padding: 0;
+    text-align: center;
+  }
+
+  .recipeItem, .restaurantItem{
+      list-style-type: none;
+  }
+
+  .results h3{
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .pageCtrl{
+      clear: both;
+      margin: 0 auto;
+  }
+
+  .recipeItem img, .restaurantItem img{
+      width: 200px;
+      margin-bottom: .5em;
   }
   /* Media Queries */
 
@@ -125,4 +163,10 @@ header{
     margin-bottom: 2.5em;
     text-align: center;
 }
+
+.restaurantItem , .recipeItem{
+    width: 50%;
+    float: left;
+}
+
 }

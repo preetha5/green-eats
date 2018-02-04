@@ -96,13 +96,13 @@ function renderRestaurant(item){
                 <img src="${restaurantImage}" alt="${restaurantName}" />
             </a>
             <h3>${restaurantName}</h3>
-            <h4>${restaurantLocation}</h4>
-            <h4>Rating : ${rating}</h4>
+            <p>${restaurantLocation}</p>
+            <p>Rating : ${rating}</p>
         </li>`;
 }
 
 function processcityCB(cityInfo){
-    //console.log(cityInfo);
+    console.log(cityInfo);
     let total = cityInfo.location_suggestions.length;
     if(total === 0){
         $(".results").empty();
@@ -131,7 +131,7 @@ function processcityCB(cityInfo){
         $(".results").empty();
         restaurants = restaurants.join('');
         restaurants += `
-        <div class="pagination">
+        <div class="pageCtrl">
             <button class="btn_prev ${linkPrev}">prev</button>
             <button class="btn_load ${linkNext}">next</button>
         </div>`;
@@ -160,7 +160,7 @@ function renderRecipes(item){
             <a href="${recipeURL}" target="_blank">
                 <img src="${recipeImage}" alt="${recipeName}" />
             </a>
-            <h4>${recipeName}</h4>
+            <h3>${recipeName}</h3>
             <p>Calories : ${calories}, Yields : ${yield}</p>
         </li>`;
     return template;
@@ -185,7 +185,7 @@ function processRecipeCB(data){
     $(".results").empty();
     recipes = recipes.join('');
     recipes += `
-    <div class="pagination">
+    <div class="pageCtrl">
     <button class="btn_prev ${linkPrev}">prev</button>
     <button class="btn_load ${linkNext}">next</button>
     </div>`;

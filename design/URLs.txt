@@ -14,7 +14,7 @@ qUERY2:
 https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&cuisines=308&sort=rating
 
 Query from zomato:
-https://www.zomato.com/index.php?entity_type=city&entity_id=279&cuisine=66&city=279
+https://www.zomato.com/index.php?entity_type=city&entity_id=10911&cuisine=308&city=10911
 
 
 Response Body
@@ -24,7 +24,7 @@ Response Body
   "results_shown": 20,
   "restaurants": [
     {
-      "restaurant": {
+      "res302taurant": {
         "R": {
           "res_id": 17071842
         },
