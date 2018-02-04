@@ -88,6 +88,7 @@ function renderRestaurant(item){
         restaurantImage = restaurant_thumb;
     }
     let restaurantLocation = item.restaurant.location.address;
+    let directionsLink = `https://www.google.com/maps/place/${restaurantLocation}`;
     let restaurantURL = item.restaurant.url;
     let rating = item.restaurant.user_rating.aggregate_rating;
     return `
@@ -97,7 +98,7 @@ function renderRestaurant(item){
             </a>
             <h3>${restaurantName}</h3>
             <p>${restaurantLocation}</p>
-            <p>Rating : ${rating}</p>
+            <p>Rating : ${rating} <a href="${directionsLink}" target="_blank">Get Directions</a></p>
         </li>`;
 }
 
@@ -105,9 +106,10 @@ function processcityCB(cityInfo){
     console.log(cityInfo);
     let total = cityInfo.location_suggestions.length;
     if(total === 0){
-        $(".results").empty();
-        $(".results").append(`
-        <p class="noResults">No results found for "${queryString}"</p>`); 
+        $(".js-results").empty();
+        $(".js-results").append(`
+        <p class="noResults">No results found for "${queryString}"</p>`);
+        $(".js-results").addClass('results');
         return;
     }
     let cityID = cityInfo.location_suggestions[0].id;
@@ -128,14 +130,16 @@ function processcityCB(cityInfo){
         let linkNext = ((result_start+10)>=total) ? 'hideLink' : '';
         let restaurants = data.restaurants.map(item => renderRestaurant(item));
         //Empty and append to the results ul
-        $(".results").empty();
-        restaurants = restaurants.join('');
-        restaurants += `
+        $(".js-results").empty();
+        restaurantsHtml = '<h2>Restaurants</h2>'
+        restaurantsHtml += restaurants.join('');
+        restaurantsHtml += `
         <div class="pageCtrl">
-            <button class="btn_prev ${linkPrev}">prev</button>
-            <button class="btn_load ${linkNext}">next</button>
+            <span class="btn_prev carousel-control-prev-icon ${linkPrev}" aria-hidden="true"></span>
+            <span class="btn_next carousel-control-next-icon ${linkNext}" aria-hidden="true"></span>
         </div>`;
-        $(".results").append(restaurants);
+        $(".js-results").append(restaurantsHtml);
+        $(".js-results").addClass('results');
     });
 }
 
@@ -172,9 +176,10 @@ function processRecipeCB(data){
     total =  data.count;
     //Return if no results found
     if(total === 0){
-        $(".results").empty();
-        $(".results").append(`
+        $(".js-results").empty();
+        $(".js-results").append(`
         <p class="noResults">No results found for "${queryString}"</p>`);
+        $(".js-results").addClass('results');
         return;
     }
     let linkPrev =  (start === 0) ? 'hideLink' : '';
@@ -182,14 +187,16 @@ function processRecipeCB(data){
     //console.log("end : "+ end + "total : " + total);
     let recipes = data.hits.map(item => renderRecipes(item));
     //Empty and append to the results ul
-    $(".results").empty();
-    recipes = recipes.join('');
-    recipes += `
+    $(".js-results").empty();
+    recipesHtml = '<h2>Recipes</h2>';
+    recipesHtml += recipes.join('');
+    recipesHtml += `
     <div class="pageCtrl">
-    <button class="btn_prev ${linkPrev}">prev</button>
-    <button class="btn_load ${linkNext}">next</button>
+    <span class= "btn_prev carousel-control-prev-icon ${linkPrev}" aria-hidden="true"></span>
+    <span class="btn_next carousel-control-next-icon ${linkNext}" aria-hidden="true"></span>
     </div>`;
-    $(".results").append(recipes);
+    $(".js-results").append(recipesHtml);
+    $(".js-results").addClass('results');
 }
 
 function searchRecipes(){
@@ -205,7 +212,7 @@ function searchRecipes(){
 }
 
 function handlePrevBtn(){
-    $(".results").on('click', '.btn_prev', function(e){
+    $(".js-results").on('click', '.btn_prev', function(e){
         e.preventDefault();
         start -=10;
         end -=10;
@@ -220,7 +227,7 @@ function handlePrevBtn(){
 }
 
 function handleNextBtn(){
-    $(".results").on('click', '.btn_load', function(e){
+    $(".js-results").on('click', '.btn_next', function(e){
         e.preventDefault();
         start +=10;
         end +=10;
@@ -259,6 +266,9 @@ function handleRadioSelection(){
     $(".selection input[type='radio']").on('change', function(e){
         let val = $(this).val();
         let searchboxHTML = '';
+        //remove the results section to start fresh
+        $(".js-results").empty();
+        $(".js-results").removeClass("results");
         if(val === 'cook'){
             searchboxHTML = `
             <input type="textarea" placeholder="ingredients, recipe name or cuisine" class="search_query" required/>

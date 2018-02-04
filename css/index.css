@@ -4,20 +4,58 @@
   }
   
   body {
-      background-color: #d6d9d0;
+      background-color:white;
   }
   
+  .container-fluid{
+      padding: 0;
+  }
+
   h1 {
       font-weight: 300;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #4a7933;
   }
 
   h2{
       font-size: 1.8rem;
   }
+
   h3{
       font-size: 1.6rem;
+  }
+
+  ul{
+    padding: 0 10px;
+  }
+
+  .shadow{
+    box-shadow: 0px 6px 20px #666;
+  }
+  
+
+  button[type="submit"]{
+    border: none;
+    background: #a6ea1e;
+    background-image: -webkit-linear-gradient(top, #a6ea1e, #4a7933);
+    background-image: -moz-linear-gradient(top, #a6ea1e, #4a7933);
+    background-image: -ms-linear-gradient(top, #a6ea1e, #4a7933);
+    background-image: -o-linear-gradient(top, #a6ea1e, #4a7933);
+    background-image: linear-gradient(to bottom, #a6ea1e, #4a7933);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 25px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+
+  button[type="submit"]:hover{
+    -webkit-box-shadow: 0px 2px 3px #666666;
+    -moz-box-shadow: 0px 2px 3px #666666;
+    box-shadow: 0px 2px 3px #666666;
   }
   
   /* Begin: Styles for the slider/carousel */
@@ -36,6 +74,11 @@
       font-size: 1.5em;
   }
   
+  .why{
+      font-style: italic;
+      font-weight: bold;
+  }
+
   #slider h3{
     text-align: left;
     font-family:sans-serif;
@@ -54,6 +97,10 @@
 /* END: Styles for the slider/carousel */
 
 /* Begin: Styles for the header/form */
+header{
+    margin: 0 20px;
+    text-align: center;
+}
 #form_search label:first-child{
     margin-right: .5em;
 }
@@ -72,25 +119,67 @@ form#form_search{
     padding: 0 10px;
     border-radius: 5px;
     width: 100%;
-    margin-bottom: 1em;
-}
-
-header{
-    margin-bottom: 2em;
-    text-align: center;
+    margin: 1em auto;
+    display: block;
 }
 
 /* END: Styles for the header/form */
 
 /* Begin: Styles for the info Page */
+
+.infoPage{
+    margin: 0;
+    padding-top: 20px;
+}
 .infoPage h3{
     font-size: 1.3rem;
     text-align: center;
   }
 
-  #back{
-      text-align: center;
-  }
+.facts ul{
+    padding: 0;
+}
+.content ul li{
+    list-style-type: none;
+}
+
+.content ul ul li{
+    list-style-type: square;
+}
+.content{
+    margin: 0 2% 1em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.facts ul li{
+    background-color: #FFE104;
+    padding: 5px 10px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+}
+
+.faq, .facts{
+    color: #4a7933;
+}
+.question{
+    font-weight: bold;
+}
+
+.humour{
+    background-color: #a6ea1e;
+    padding: 10px 2em;
+    border-radius: 10px;
+}
+
+#back, .humour > p{
+    text-align: center;
+}
+
+.carrots{
+    width:100px;
+}
+
 
 /* END: Styles for the info Page */
 
@@ -99,23 +188,45 @@ header{
   .results{
     padding: 0;
     text-align: center;
+    padding: 1em 0;
+    margin-bottom: 3em;
   }
 
   .recipeItem, .restaurantItem{
-      list-style-type: none;
+    list-style-type: none;
+    margin-bottom: 1em;
+    background-color: rgba(180, 195, 167, 1);
+    padding: 20px 0 5px;
   }
 
+  .noResults{
+      font-weight: bold;
+  }
   .results h3{
     font-size: 1rem;
     font-weight: bold;
   }
   .pageCtrl{
       clear: both;
-      margin: 0 auto 3rem;
   }
+
+  .pageCtrl span{
+    background-color: #4a7933;
+    padding: 13px;
+    border-radius: 5px;
+  }
+
+  .pageCtrl .btn_prev{
+      margin-right: 2em;
+  }
+
+.btn_prev:hover , .btn_next:hover{
+    opacity: .5;
+}  
 
   .recipeItem img, .restaurantItem img{
       width: 200px;
+      height: 200px;
       margin-bottom: .5em;
   }
   /* Media Queries */
@@ -165,17 +276,25 @@ header{
     text-align: center;
 }
 
+.search_query {
+    height: 60px;
+    width: 75%;
+}
+.content {
+    margin: 0 2% 1em;
+    max-width: 46%;
+}
 .restaurantItem , .recipeItem{
     width: 50%;
     float: left;
-    min-height: 350px;
+    min-height: 375px;
 }
 
 }
 
 @media screen and (min-width:1200px){
     .restaurantItem, .recipeItem {
-        min-height: 300px;
+        min-height: 380px;
     }
 
     #slider {

@@ -14,7 +14,7 @@ qUERY2:
 https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&cuisines=308&sort=rating
 
 Query from zomato:
-https://www.zomato.com/index.php?entity_type=city&entity_id=10911&cuisine=308&city=10911
+https://www.zomato.com/index.php?entity_type=city&entity_id=10911&cuisine=308&city=10911&api_key=5e07d543a08ec1f65b9ef497e9c9e1b4
 
 
 Response Body
