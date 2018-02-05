@@ -9,10 +9,10 @@ An application to search for vegetarian menus and veg-friendly restaurant by cit
 <br />
 Landing Page
 
-![Image of Green Eats App](https://preetha5.github.com/greeneats/images/greeneats.jpg)
+![Image of Green Eats App](https://preetha5.github.io/greeneats/images/greeneats.jpg)
 
 ## TECHNOLOGIES USED
-<br />
+
 #### HTML5
 #### CSS3
 #### Javascript(ES6)
