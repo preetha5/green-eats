@@ -134,8 +134,8 @@ function processcityCB(cityInfo){
         restaurantsHtml += restaurants.join('');
         restaurantsHtml += `
         <div class="pageCtrl">
-            <span class="btn_prev carousel-control-prev-icon ${linkPrev}" aria-hidden="true"></span>
-            <span class="btn_next carousel-control-next-icon ${linkNext}" aria-hidden="true"></span>
+            <a href="#" class="btn_prev carousel-control-prev-icon ${linkPrev}" aria-label="Fetch previous 10 results"></a>
+            <a href="#" class="btn_next carousel-control-next-icon ${linkNext}" aria-label="Fetch next 10 results"></a>
         </div>`;
         $(".js-results").append(restaurantsHtml);
         $(".js-results").addClass('results');
@@ -191,8 +191,8 @@ function processRecipeCB(data){
     recipesHtml += recipes.join('');
     recipesHtml += `
     <div class="pageCtrl">
-    <span class= "btn_prev carousel-control-prev-icon ${linkPrev}" aria-hidden="true"></span>
-    <span class="btn_next carousel-control-next-icon ${linkNext}" aria-hidden="true"></span>
+    <a href="#" class= "btn_prev carousel-control-prev-icon ${linkPrev}" aria-label="Fetch previous 10 results"></a>
+    <a href="#" class="btn_next carousel-control-next-icon ${linkNext}" aria-label="Fetch next 10 results"></a>
     </div>`;
     $(".js-results").append(recipesHtml);
     $(".js-results").addClass('results');

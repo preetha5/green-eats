@@ -69,21 +69,23 @@
         <div class="row">
             <header role="banner" class="col-sm-12" >
                 <h1>Welcome to Green Eats</h1>
-                <p>Here you can find inspirations for cooking vegetarian recipes or
+                <p class="purpose">Here you can find inspirations for cooking vegetarian recipes or
                     find veg-friendly restaurants in your city.
                 </p>
                 <section class="selection">
-                        <h2>I'm in the mood to :</h2>
+                    <fieldset>
+                        <legend>I'm in the mood to :</legend>
                         <input type="radio" name="selection" id="cook" value="cook" checked autofocus />
                         <label for="cook">COOK</label>
                         <input type="radio" name="selection" id="eat-out" value ="eat-out" />
                         <label for="eat-out">EAT-OUT</label>
-                    </section>
-                    <form action="#" id="form_search" class="searchBox">
-                            <input type="text" placeholder="ingredients, recipe name or cuisine" 
-                            class="search_query" required id="autocomplete"/>
-                            <button type="submit"> Search </button>
-                    </form>
+                    </fieldset>                   
+                </section>
+                <form action="#" id="form_search" class="searchBox">
+                        <input type="text" placeholder="ingredients, recipe name or cuisine" 
+                        class="search_query" required id="autocomplete" aria-label="search box"/>
+                        <button type="submit"> Search </button>
+                </form>
             </header>        
         </div> <!-- end of header section -->
         <main role="main">
@@ -117,7 +119,6 @@
                                         <li>Nuts and Seeds</li>
                                     </ul>   
                                 </li>
-                                <br>
                                 <li>
                                     <p class="question">Does being a vegetarian really help the environment?</p>
                                     <p>Per a study in the scientific-american,Switching to a lacto-ovo vegetarian diet 
@@ -157,16 +158,16 @@
                                 
                                 <ul>
                                     <li>
-                                        <p>What did the lettuce say to the celery?</p>
+                                        <h4 class="orange">What did the lettuce say to the celery?</h4>
                                         <p>-Are you stalking me?</p>
                                     </li>
 
                                    <li>
-                                        <p>What did one vegetarian spy say to the other vegetarian spy?</p>
+                                        <h4 class="orange">What did one vegetarian spy say to the other vegetarian spy?</h4>
                                         <p>-We have to stop <em>meating</em> like this.</p>
                                    </li>
                                    <li>
-                                       <p>George Castanza's (Seinfield) take on the ethics of eating chickens.</p>
+                                       <h4 class="orange">George Castanza's (Seinfield) take on the ethics of eating chickens.</h4>
                                        <p>- Do chickens have individual personalities? 
                                            If they do have then I'm not sure we should be eating them.</p>
                                    </li>

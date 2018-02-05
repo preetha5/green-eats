@@ -17,9 +17,10 @@
  /* End: Overriding bootstrap styles */
 
   h1 {
-      font-weight: 300;
-      font-size: 1.8rem;
-      color: #4a7933;
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 1.8em;
+    color: #a6ea1e;
   }
 
   h2{
@@ -105,6 +106,12 @@ header{
     /* margin: 0 20px; */
     text-align: center;
 }
+
+p.purpose {
+    font-size: 1.5rem;
+    color: #c6c6c6;
+}
+
 #form_search label:first-child{
     margin-right: .5em;
 }
@@ -119,7 +126,7 @@ form#form_search{
 
 .search_query{
     height: 40px;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 0 10px;
     border-radius: 5px;
     width: 100%;
@@ -139,6 +146,7 @@ form#form_search{
 .infoPage h3{
     font-size: 1.3rem;
     text-align: center;
+    line-height: 2em;
   }
 
 .facts ul{
@@ -148,13 +156,7 @@ form#form_search{
 .facts ul li strong{
     font-weight: bold;
 }
-.content ul li{
-    list-style-type: none;
-}
 
-.content ul ul li{
-    list-style-type: square;
-}
 .content{
     margin: 0 2% 1em;
     padding-top: 15px;
@@ -162,16 +164,30 @@ form#form_search{
     background-color: #ffffff;
 }
 
-.facts ul li{
-    background-color: #FFE104;
-    padding: 5px 10px;
-    margin-bottom: 1em;
-    border-radius: 10px;
+.content ul li{
+    list-style-type: none;
+}
+
+.content ul ul li{
+    list-style-type: square;
+}
+
+.content ul ul{
+    margin-bottom: 1rem;
 }
 
 .faq, .facts{
     color: #4a7933;
 }
+
+.facts ul li{
+    background-color: #FFE104;
+    padding: 15px 20px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    line-height: 1.25em;
+}
+
 .question{
     font-weight: bold;
 }
@@ -180,6 +196,18 @@ form#form_search{
     background-color: #a6ea1e;
     padding: 10px 2em;
     border-radius: 10px;
+}
+
+.humour p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #618b0d;
+    line-height: 1.25em;
+}
+.orange{
+    color: darkorange;
+    font-size: 1em;
 }
 
 #back{
@@ -253,7 +281,7 @@ main{
       clear: both;
   }
 
-  .pageCtrl span{
+  .pageCtrl a{
     background-color: #4a7933;
     padding: 13px;
     border-radius: 5px;
@@ -275,7 +303,7 @@ main{
   .recipeItem img, .restaurantItem img{
       width: 200px;
       height: 200px;
-      margin-bottom: .5em;
+      margin-bottom: 2.5em;
       padding: 10px;
       background-color: white;
   }
@@ -284,10 +312,7 @@ main{
 @media screen and (min-width:768px){
 
 h1 {
-    font-family: sans-serif;
-    font-weight: 300;
     font-size: 3em;
-    color: #4a7933;
 }
 
 #slider{
@@ -339,6 +364,10 @@ header{
     float: left;
     min-height: 375px;
     margin: 0 5% 1em;
+}
+
+.orange{
+    font-weight: bold;
 }
 
 }
