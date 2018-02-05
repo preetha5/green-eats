@@ -8,11 +8,11 @@ let queryString = '';
 let start = 0;
 let end = 10;
 let total = 0;
+let slideIndex = 1;
 
 // BEGIN: GOOGLE AUTOCOMPLETE FOR CITIES
 function initAutocomplete() {
     let input = $(".search_query");
-    console.log(input);
     // Create the autocomplete object, restricting the search to geographical
     // location types.
     autocomplete = new google.maps.places.Autocomplete(
@@ -60,7 +60,6 @@ function getFlickrImage(name){
         };
     $.getJSON(URL_FLICKR, flickrQuery, function(data){
         if(!data.photos.photo[0]){
-            console.log("no photo found for "+ name );
             $('img[alt="'+name+'"]').attr("src", restaurant_thumb);
             return;
         }
@@ -74,7 +73,6 @@ function getFlickrImage(name){
         $.getJSON(URL_FLICKR, photoQuery, function(data){
             path  = (data.sizes.size[1].source)? (data.sizes.size[1].source):restaurant_thumb;
             console.log("inside flickr func "+path);
-            console.log('img[alt="'+name+'"]');
             $('img[alt="'+name+'"]').attr("src", path);
         });
     });
@@ -142,17 +140,16 @@ function processcityCB(cityInfo){
     });
 }
 
+/* Call the Zomato API with city value*/
 function searchRestaurants(){
     let query = { 
         'q': queryString,
         "apikey": "5e07d543a08ec1f65b9ef497e9c9e1b4",
     };
-    console.log(query);
     $.getJSON(URL_CITIES, query, processcityCB);
     }
 
 function renderRecipes(item){
-    console.log(item);
     let recipeURL = item.recipe.url;
     let recipeName = item.recipe.label;
     let recipeImage = item.recipe.image;
@@ -183,7 +180,6 @@ function processRecipeCB(data){
     }
     let linkPrev =  (start === 0) ? 'hideLink' : '';
     let linkNext = (end>=total) ? 'hideLink' : '';
-    //console.log("end : "+ end + "total : " + total);
     let recipes = data.hits.map(item => renderRecipes(item));
     //Empty and append to the results ul
     $(".js-results").empty();
@@ -198,6 +194,7 @@ function processRecipeCB(data){
     $(".js-results").addClass('results');
 }
 
+/* Call the EDAMAM API with ingredients/cuisine value*/
 function searchRecipes(){
     let query = { 
         'q': queryString,
@@ -210,6 +207,7 @@ function searchRecipes(){
     $.getJSON(URL_RECIPE, query, processRecipeCB);
 }
 
+/* Handle button click to fetch previous 10 results*/
 function handlePrevBtn(){
     $(".js-results").on('click', '.btn_prev', function(e){
         e.preventDefault();
@@ -228,6 +226,7 @@ function handlePrevBtn(){
     })
 }
 
+/* Handle button click to fetch next 10 results*/
 function handleNextBtn(){
     $(".js-results").on('click', '.btn_next', function(e){
         e.preventDefault();
@@ -246,6 +245,8 @@ function handleNextBtn(){
     })
 }
 
+/* Take the search query and call the corresponding API based
+radio button selection */
 function handleSearchQuery(){
     $("#form_search").submit(function(e){
         e.preventDefault();
@@ -291,8 +292,6 @@ function handleRadioSelection(){
         $.getScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete`);
     })
 }
-
-let slideIndex = 1;
 
 function currentSlide(n){
     showSlides(n);

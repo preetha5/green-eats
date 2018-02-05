@@ -20,6 +20,7 @@ Landing Page
 ![Image of Green Eats App](https://preetha5.github.io/greeneats/images/greeneats.jpg)
 
 Recipe Search
+
 ![Image of search recipes](https://preetha5.github.io/greeneats/images/search_results.jpg)
 
 ## PUBLIC APIS USED

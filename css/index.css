@@ -153,6 +153,14 @@ form#form_search{
     padding: 0;
 }
 
+.facts ul li{
+    background-color: #FFE104;
+    padding: 15px 20px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    line-height: 1.25em;
+}
+
 .facts ul li strong{
     font-weight: bold;
 }
@@ -178,14 +186,6 @@ form#form_search{
 
 .faq, .facts{
     color: #4a7933;
-}
-
-.facts ul li{
-    background-color: #FFE104;
-    padding: 15px 20px;
-    margin-bottom: 1em;
-    border-radius: 10px;
-    line-height: 1.25em;
 }
 
 .question{
@@ -226,88 +226,85 @@ form#form_search{
 
 /* END: Styles for the info Page */
 
-  /* Styles for the results section */
-main{
-    
+/*BEGIN : Styles for the results section */
+
+.results{
+padding: 0;
+color: white;
+text-align: center;
+padding: 1em 0;
+margin-bottom: 3em;
+background: url('../images/background1.jpg') no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
-  .results{
-    padding: 0;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    margin-bottom: 3em;
-    background: url('../images/background1.jpg') no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 
-  .recipeItem, .restaurantItem{
-    list-style-type: none;
-    margin-bottom: 1em;
-    background-color: rgba(0,0,0,.5);
-    /* background-color: rgba(180, 195, 167, 1); */
-    padding: 20px 0 5px;
-  }
+.recipeItem, .restaurantItem{
+list-style-type: none;
+margin-bottom: 1em;
+background-color: rgba(0,0,0,.5);
+padding: 20px 0 5px;
+}
 
-  .recipeItem:hover, .recipeItem:focus, .restaurantItem:hover, .restaurantItem:focus,
-  .restaurantItem:active, .recipeItem:active{
-    outline: solid 1px #fff;
-  }
+.recipeItem:hover, .recipeItem:focus, .restaurantItem:hover, .restaurantItem:focus,
+.restaurantItem:active, .recipeItem:active{
+outline: solid 1px #fff;
+}
 
-  .noResults{
-      font-weight: bold;
-  }
-
-  .getDirections{
-    color: #a6ea1e;
-    font-weight: 600;
-  }
-
-  .getDirections:hover{
-    color:#007bff
-  }
-
-  .results h2{
-    text-shadow: 1px 1px 2px black, 9px 7px 1em #4a7933, 0 0 0.2em #4343cc;
-  }
-
-  .results h3{
-    font-size: 1rem;
+.noResults{
     font-weight: bold;
-  }
-  .pageCtrl{
-      clear: both;
-  }
+}
 
-  .pageCtrl a{
-    background-color: #4a7933;
-    padding: 13px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 17px #ffffff;
-  }
+.getDirections{
+color: #a6ea1e;
+font-weight: 600;
+}
 
-  .pageCtrl .btn_prev{
-      margin-right: 2em;
-  }
+.getDirections:hover{
+color:#007bff
+}
 
-  .hideLink{
-      display: none;
-  }
+.results h2{
+text-shadow: 1px 1px 2px black, 9px 7px 1em #4a7933, 0 0 0.2em #4343cc;
+}
+
+.results h3{
+font-size: 1rem;
+font-weight: bold;
+}
+.pageCtrl{
+    clear: both;
+}
+
+.pageCtrl a{
+background-color: #4a7933;
+padding: 13px;
+border-radius: 5px;
+box-shadow: 0px 0px 17px #ffffff;
+}
+
+.pageCtrl .btn_prev{
+    margin-right: 2em;
+}
+
+.hideLink{
+    display: none;
+}
 
 .btn_prev:hover , .btn_next:hover{
     opacity: .5;
 }  
 
-  .recipeItem img, .restaurantItem img{
-      width: 200px;
-      height: 200px;
-      margin-bottom: 2.5em;
-      padding: 10px;
-      background-color: white;
-  }
-  /* Media Queries */
+.recipeItem img, .restaurantItem img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2.5em;
+    padding: 10px;
+    background-color: white;
+}
+/************** Media Queries ****************/
 
 @media screen and (min-width:768px){
 
