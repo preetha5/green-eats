@@ -38,29 +38,28 @@
     box-shadow: 0px 6px 20px #666;
   }
   
-
   button[type="submit"]{
-    border: none;
+    border: solid 2px #a6ea1e;
+    background-color: white;
+    color: #a6ea1e;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 25px;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+
+  button[type="submit"]:hover, button[type="submit"]:focus{
     background: #a6ea1e;
     background-image: -webkit-linear-gradient(top, #a6ea1e, #4a7933);
     background-image: -moz-linear-gradient(top, #a6ea1e, #4a7933);
     background-image: -ms-linear-gradient(top, #a6ea1e, #4a7933);
     background-image: -o-linear-gradient(top, #a6ea1e, #4a7933);
     background-image: linear-gradient(to bottom, #a6ea1e, #4a7933);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 25px;
-    font-family: Arial;
     color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-  }
-
-  button[type="submit"]:hover{
-    -webkit-box-shadow: 0px 2px 3px #666666;
-    -moz-box-shadow: 0px 2px 3px #666666;
-    box-shadow: 0px 2px 3px #666666;
   }
   
   /* Begin: Styles for the slider/carousel */
@@ -135,6 +134,7 @@ form#form_search{
 .infoPage{
     margin: 0;
     padding-top: 20px;
+    background-color: #d6d9d0;
 }
 .infoPage h3{
     font-size: 1.3rem;
@@ -143,6 +143,10 @@ form#form_search{
 
 .facts ul{
     padding: 0;
+}
+
+.facts ul li strong{
+    font-weight: bold;
 }
 .content ul li{
     list-style-type: none;
@@ -155,6 +159,7 @@ form#form_search{
     margin: 0 2% 1em;
     padding-top: 15px;
     padding-bottom: 15px;
+    background-color: #ffffff;
 }
 
 .facts ul li{
@@ -218,8 +223,22 @@ main{
     padding: 20px 0 5px;
   }
 
+  .recipeItem:hover, .recipeItem:focus, .restaurantItem:hover, .restaurantItem:focus,
+  .restaurantItem:active, .recipeItem:active{
+    outline: solid 1px #fff;
+  }
+
   .noResults{
       font-weight: bold;
+  }
+
+  .getDirections{
+    color: #a6ea1e;
+    font-weight: 600;
+  }
+
+  .getDirections:hover{
+    color:#007bff
   }
 
   .results h2{

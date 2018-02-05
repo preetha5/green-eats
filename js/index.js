@@ -18,7 +18,6 @@ function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
         {types: ['geocode']});
-    console.log(autocomplete);
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
     autocomplete.addListener('place_changed', fillInAddress);
@@ -98,7 +97,7 @@ function renderRestaurant(item){
             </a>
             <h3>${restaurantName}</h3>
             <p>${restaurantLocation}</p>
-            <p>Rating : ${rating} <a href="${directionsLink}" target="_blank">Get Directions</a></p>
+            <p>Rating : ${rating} <a href="${directionsLink}" class="getDirections" target="_blank">Get Directions</a></p>
         </li>`;
 }
 

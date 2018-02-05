@@ -74,7 +74,7 @@
                 </p>
                 <section class="selection">
                         <h2>I'm in the mood to :</h2>
-                        <input type="radio" name="selection" id="cook" value="cook" checked />
+                        <input type="radio" name="selection" id="cook" value="cook" checked autofocus />
                         <label for="cook">COOK</label>
                         <input type="radio" name="selection" id="eat-out" value ="eat-out" />
                         <label for="eat-out">EAT-OUT</label>
@@ -88,7 +88,7 @@
         </div> <!-- end of header section -->
         <main role="main">
                 <!-- Placeholder for search results from API -->
-                <ul class="js-results" id="results"></ul>
+                <ul class="js-results" id="results" aria-live="assertive"></ul>
                <div class="infoPage row">
                   <article class="faq content box-shadow col-sm-12 col-md-6 shadow">
                             <h3>Common Questions About Vegetarian Diets</h3>
@@ -132,19 +132,19 @@
                             <div class="facts box-shadow">
                                 <h3>Did you Know?</h3>
                                 <ul>
-                                    <li>The first Vegetarian Society was formed in England in 1847. 
+                                    <li><strong>The first Vegetarian Society </strong> was formed in England in 1847. 
                                     The society’s goal was to teach people that it is possible to be healthy without 
                                     eating meat.</li>
-                                    <li>Vegetarianism has roots in ancient India. In fact, currently 70% of the world’s 
+                                    <li>Vegetarianism has <strong>roots in ancient India </strong>. In fact, currently 70% of the world’s 
                                         vegetarians are Indians and there are more vegetarians in India than in any 
                                         other country in the world.</li>
-                                    <li> Only around 20% of the corn grown in the United States is eaten by people, 
+                                    <li> Only around <strong>20% of the corn grown </strong>in the United States is eaten by people, 
                                         with about 80% of the corn eaten by livestock.</li>
-                                    <li>Opting for vegetarian food does not mean no more meat.
+                                    <li>Opting for vegetarian food <strong>does not mean no more meat </strong>.
                                         Creating a good plant-based diet a few times a week would be a healthy start.
                                     </li>
                                     <li>
-                                        One of the first famous vegetarians was the Greek philosopher Pythagoras 
+                                            <strong>One of the first famous vegetarians </strong>was the Greek philosopher Pythagoras 
                                             who lived at the end of the 6th century B.C. In fact, the term “Pythagorean diet” 
                                             was commonly used for a plant-based diet until the term “vegetarian” was coined in the 19th century.
                                     </li>
@@ -175,8 +175,8 @@
                                 <p>For more veggie humor go <a href="https://www.happycow.net/vegtopics/humor">here.</a></p>
                             </div>
                         </article>
+                        <p class="col-sm-12"><a href="#" id="back"  >Back to Search</a></p>
                 </div>
-                <p><a href="#" id="back" >Back to Search</a></p>
               </main> <!--end main section -->
         </div>
 <script
