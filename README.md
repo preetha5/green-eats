@@ -5,22 +5,23 @@ An application to search for vegetarian menus and veg-friendly restaurant by cit
 
 
 
-##SCREENSHOTS
+## SCREENSHOTS
 <br />
 Landing Page
+
 ![Image of Green Eats App](https://preetha5.github.com/greeneats/images/greeneats.jpg)
 
-##Technologies Used
+## TECHNOLOGIES USED
 <br />
-####HTML5
-####CSS3
-###Javascript(ES6)
-###jQuery
-###AJAX/JSON
+#### HTML5
+#### CSS3
+#### Javascript(ES6)
+#### jQuery
+#### AJAX/JSON
 
-##LIVE SITE
+## LIVE SITE
 https://preetha5.github.io/greeneats
 
-##Author
+## AUTHOR
 <br />
 Preetha Ramakrishnan
