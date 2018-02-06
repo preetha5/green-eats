@@ -294,9 +294,9 @@ function processcityCB(cityInfo){
     }
     let cityID = cityInfo.location_suggestions[0].id;
     let restaurantQuery = {
-        'entity_type': "city",
         'entity_id': cityID,
-        'cuisine': '308',
+        'entity_type': "city",
+        'cuisines': '308',
         'start': start,
         'count': 10,
         "apikey": "5e07d543a08ec1f65b9ef497e9c9e1b4",

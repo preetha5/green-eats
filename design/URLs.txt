@@ -1,5 +1,7 @@
 Zomato
 
+"apikey": "5e07d543a08ec1f65b9ef497e9c9e1b4",
+
 Headers:
 const baseUrl = 'https://developers.zomato.com/api/v2.1/'
 
@@ -10,11 +12,13 @@ const headerVals = {'Accept': 'application/json',
 qUERY1:
 https://developers.zomato.com/api/v2.1/cities?q=San%20Diego
 
-qUERY2:
-https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&cuisines=308&sort=rating
+Request URL by CITY ID:
+Request URL:https://developers.zomato.com/api/v2.1/search?entity_type=city&entity_id=302&cuisine=308&start=0&count=10&apikey=5e07d543a08ec1f65b9ef497e9c9e1b4
+
+https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&cuisines=308&start=0&count=10&apikey=5e07d543a08ec1f65b9ef497e9c9e1b4
 
 Query from zomato:
-https://www.zomato.com/index.php?entity_type=city&entity_id=10911&cuisine=308&city=10911&api_key=5e07d543a08ec1f65b9ef497e9c9e1b4
+https://www.zomato.com/index.php?entity_type=city&entity_id=10911&cuisine=308&city=10911&api_key=5e07d543a08ec1f65b9ef497e9c9e1b4&format=json
 
 
 Response Body

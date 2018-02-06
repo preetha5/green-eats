@@ -21,7 +21,11 @@ Landing Page
 
 Recipe Search
 
-![Image of search recipes](https://preetha5.github.io/greeneats/images/search_results.jpg)
+![Image of search recipes](https://preetha5.github.io/greeneats/images/search_recipes.jpg)
+
+Restaurant Search
+
+![Image of search recipes](https://preetha5.github.io/greeneats/images/search_restaurants.jpg)
 
 ## PUBLIC APIS USED
 * Zomato
@@ -44,4 +48,4 @@ https://preetha5.github.io/greeneats
 Preetha Ramakrishnan
 
 ## CREDITS
-Background image from unsplash.com
+Background image from pexels.com

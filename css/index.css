@@ -72,10 +72,10 @@ h1 {
   /* Begin: Styles for the slider/carousel */
   #slider{
     background-color: #a6ea1e; /*bright green */
-    height: 350px;
+    height: 385px;
     width: 100%;
     margin: 0 auto 25px;
-    padding-top: 20px;
+    padding-top: 50px;
   }
   
   #slider h2 {
@@ -83,6 +83,7 @@ h1 {
       font-weight: 200;
       color: white;
       font-size: 1.5em;
+      padding-bottom: 1em;
   }
   
   .why{
@@ -322,7 +323,7 @@ h1 {
 
 #slider{
     background-color: #a6ea1e;
-    height: 330px;
+    height: 350px;
     width: 100%;
     padding: 20px;
     margin: 0 auto 25px;
@@ -334,7 +335,7 @@ h1 {
     font-weight: 200;
     color: white;
     font-size: 1.75em;
-    padding-bottom: 1em;
+    padding: 2em 0 1em;
 }
 
 #slider h3{
