@@ -39,6 +39,7 @@ Restaurant Search
 #### CSS3
 #### Javascript(ES6)
 #### jQuery
+#### Bootstrap
 #### AJAX/JSON
 
 ## LIVE SITE
