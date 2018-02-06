@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Green Eats</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nlform.css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -58,29 +60,30 @@
                 </div>
                 <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">Previous Slide</span>
                 </a>
                 <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">Next Slide</span>
                 </a>
               </div>
         </div> <!---end of slider section -->
-        <div class="row">
-            <header role="banner" class="col-sm-12" >
+        <div class="row center">
+            <header role="banner" class="col-sm-12 col-md-8" >
                 <h1>Welcome to Green Eats</h1>
                 <p class="purpose">Here you can find inspirations for cooking vegetarian recipes or
                     find veg-friendly restaurants in your city.
                 </p>
-                <section class="selection">
-                    <fieldset>
-                        <legend>I'm in the mood to :</legend>
-                        <input type="radio" name="selection" id="cook" value="cook" checked autofocus />
-                        <label for="cook">COOK</label>
-                        <input type="radio" name="selection" id="eat-out" value ="eat-out" />
-                        <label for="eat-out">EAT-OUT</label>
-                    </fieldset>                   
-                </section>
+                <form id="nl-form" class="nl-form selection">
+                    <span>I'm in the mood to</span>
+                    <br />  
+                    <select>
+                        <option value="cook" selected>Cook</option>
+                        <option value="eat-out">Eat Out</option>
+                    </select>
+                    <span>today.</span>
+                    <div class="nl-overlay"></div>
+                </form>
                 <form action="#" id="form_search" class="searchBox">
                         <input type="text" placeholder="ingredients, recipe name or cuisine" 
                         class="search_query" required id="autocomplete" aria-label="search box"/>
@@ -185,5 +188,8 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
 <script src="js/index.js"></script>
+<script>
+    
+</script>
 </body>
 </html>

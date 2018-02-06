@@ -10,6 +10,189 @@ let end = 10;
 let total = 0;
 let slideIndex = 1;
 
+/*BEGIN: Natural language form */
+/**This is the library to instantiate and use the natural language search form **/
+function handleNLForm(){
+    var document = window.document;
+
+	if (!String.prototype.trim) {
+		String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
+	}
+
+	function NLForm( el ) {	
+		this.el = el;
+		this.overlay = this.el.querySelector( '.nl-overlay' );
+		this.fields = [];
+		this.fldOpen = -1;
+		this._init();
+	}
+
+	NLForm.prototype = {
+		_init : function() {
+			var self = this;
+			Array.prototype.slice.call( this.el.querySelectorAll( 'select' ) ).forEach( function( el, i ) {
+				self.fldOpen++;
+				self.fields.push( new NLField( self, el, 'dropdown', self.fldOpen ) );
+			} );
+			Array.prototype.slice.call( this.el.querySelectorAll( 'input' ) ).forEach( function( el, i ) {
+				self.fldOpen++;
+				self.fields.push( new NLField( self, el, 'input', self.fldOpen ) );
+			} );
+			this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
+			this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
+		},
+		_closeFlds : function() {
+			if( this.fldOpen !== -1 ) {
+				this.fields[ this.fldOpen ].close();
+			}
+		}
+	}
+
+	function NLField( form, el, type, idx ) {
+		this.form = form;
+		this.elOriginal = el;
+		this.pos = idx;
+		this.type = type;
+		this._create();
+		this._initEvents();
+	}
+
+	NLField.prototype = {
+		_create : function() {
+			if( this.type === 'dropdown' ) {
+				this._createDropDown();	
+			}
+			else if( this.type === 'input' ) {
+				this._createInput();	
+			}
+		},
+		_createDropDown : function() {
+			var self = this;
+			this.fld = document.createElement( 'div' );
+			this.fld.className = 'nl-field nl-dd';
+            this.toggle = document.createElement( 'a' );
+            this.toggle.setAttribute("href", "#");
+			this.toggle.innerHTML = this.elOriginal.options[ this.elOriginal.selectedIndex ].innerHTML;
+			this.toggle.className = 'nl-field-toggle';
+			this.optionsList = document.createElement( 'ul' );
+			var ihtml = '';
+			Array.prototype.slice.call( this.elOriginal.querySelectorAll( 'option' ) ).forEach( function( el, i ) {
+				ihtml += self.elOriginal.selectedIndex === i ? '<li class="nl-dd-checked">' + el.innerHTML + '</li>' : '<li>' + el.innerHTML + '</li>';
+				// selected index value
+				if( self.elOriginal.selectedIndex === i ) {
+					self.selectedIdx = i;
+				}
+			} );
+			this.optionsList.innerHTML = ihtml;
+			this.fld.appendChild( this.toggle );
+			this.fld.appendChild( this.optionsList );
+			this.elOriginal.parentNode.insertBefore( this.fld, this.elOriginal );
+			this.elOriginal.style.display = 'none';
+		},
+		_createInput : function() {
+			var self = this;
+            this.fld = document.createElement( 'div' );
+			this.fld.className = 'nl-field nl-ti-text';
+			this.toggle = document.createElement( 'a' );
+			this.toggle.innerHTML = this.elOriginal.getAttribute( 'placeholder' );
+			this.toggle.className = 'nl-field-toggle';
+			this.optionsList = document.createElement( 'ul' );
+			this.getinput = document.createElement( 'input' );
+			this.getinput.setAttribute( 'type', 'text' );
+			this.getinput.setAttribute( 'placeholder', this.elOriginal.getAttribute( 'placeholder' ) );
+			this.getinputWrapper = document.createElement( 'li' );
+			this.getinputWrapper.className = 'nl-ti-input';
+			this.inputsubmit = document.createElement( 'button' );
+			this.inputsubmit.className = 'nl-field-go';
+			this.inputsubmit.innerHTML = 'Go';
+			this.getinputWrapper.appendChild( this.getinput );
+			this.getinputWrapper.appendChild( this.inputsubmit );
+			this.example = document.createElement( 'li' );
+			this.example.className = 'nl-ti-example';
+			this.example.innerHTML = this.elOriginal.getAttribute( 'data-sublime' );
+			this.optionsList.appendChild( this.getinputWrapper );
+			this.optionsList.appendChild( this.example );
+			this.fld.appendChild( this.toggle );
+			this.fld.appendChild( this.optionsList );
+			this.elOriginal.parentNode.insertBefore( this.fld, this.elOriginal );
+			this.elOriginal.style.display = 'none';
+		},
+		_initEvents : function() {
+			var self = this;
+			this.toggle.addEventListener( 'click', function( ev ) { ev.preventDefault(); ev.stopPropagation(); self._open(); } );
+			this.toggle.addEventListener( 'touchstart', function( ev ) { ev.preventDefault(); ev.stopPropagation(); self._open(); } );
+
+			if( this.type === 'dropdown' ) {
+                let opts = Array.prototype.slice.call( this.optionsList.querySelectorAll( 'li' ) );
+                $('.nl-field ul').attr('aria-live', 'polite');
+                $('.nl-field ul').focus();
+                $('.nl-field ul li:first').attr('tabindex', 0);
+                $('.nl-field ul li:last').attr('tabindex', 1);
+				opts.forEach( function( el, i ) {
+					el.addEventListener( 'click', function( ev ) {
+                         ev.preventDefault(); 
+                         self.close( el, opts.indexOf( el ) );
+                        } );
+					el.addEventListener( 'touchstart', function( ev ) { 
+                        ev.preventDefault(); 
+                        self.close( el, opts.indexOf( el ) ); } );
+				} );
+			}
+			else if( this.type === 'input' ) {
+				this.getinput.addEventListener( 'keydown', function( ev ) {
+					if ( ev.keyCode == 13 ) {
+						self.close();
+					}
+				} );
+				this.inputsubmit.addEventListener( 'click', function( ev ) { ev.preventDefault(); self.close(); } );
+				this.inputsubmit.addEventListener( 'touchstart', function( ev ) { ev.preventDefault(); self.close(); } );
+			}
+
+		},
+		_open : function() {
+			if( this.open ) {
+				return false;
+			}
+			this.open = true;
+			this.form.fldOpen = this.pos;
+			var self = this;
+			this.fld.className += ' nl-field-open';
+		},
+		close : function( opt, idx ) {
+			if( !this.open ) {
+				return false;
+			}
+			this.open = false;
+			this.form.fldOpen = -1;
+			this.fld.className = this.fld.className.replace(/\b nl-field-open\b/,'');
+
+			if( this.type === 'dropdown' ) {
+				if( opt ) {
+					// remove class nl-dd-checked from previous option
+					var selectedopt = this.optionsList.children[ this.selectedIdx ];
+					selectedopt.className = '';
+					opt.className = 'nl-dd-checked';
+					this.toggle.innerHTML = opt.innerHTML;
+					// update selected index value
+					this.selectedIdx = idx;
+					// update original select element´s value
+                    this.elOriginal.value = this.elOriginal.children[ this.selectedIdx ].value;
+                    handleToggleSelection(this.elOriginal.value);
+				}
+			}
+			else if( this.type === 'input' ) {
+				this.getinput.blur();
+				this.toggle.innerHTML = this.getinput.value.trim() !== '' ? this.getinput.value : this.getinput.getAttribute( 'placeholder' );
+				this.elOriginal.value = this.getinput.value;
+			}
+		}
+	}
+	// add to global namespace
+    window.NLForm = NLForm;
+    let nlform = new NLForm( document.getElementById( 'nl-form' ) );
+
+} //END: Natural language form
+
 // BEGIN: GOOGLE AUTOCOMPLETE FOR CITIES
 function initAutocomplete() {
     let input = $(".search_query");
@@ -94,7 +277,7 @@ function renderRestaurant(item){
                 <img src="${restaurantImage}" alt="${restaurantName}" />
             </a>
             <h3>${restaurantName}</h3>
-            <p>${restaurantLocation}</p>
+            <p class="address">${restaurantLocation}</p>
             <p>Rating : ${rating} <a href="${directionsLink}" class="getDirections" target="_blank">Get Directions</a></p>
         </li>`;
 }
@@ -213,11 +396,12 @@ function handlePrevBtn(){
         e.preventDefault();
         start -=10;
         end -=10;
-        if ($("#cook").is(':checked')){
+        let option = $('.nl-field-toggle').text();
+        if (option === "Cook"){
             //Call the Edamam API again to add 5 more results to the list
             searchRecipes();
         } else 
-        if ($("#eat-out").is(':checked')){
+        if (option === "Eat Out"){
             searchRestaurants();
         }
         $('html, body').animate({
@@ -227,16 +411,17 @@ function handlePrevBtn(){
 }
 
 /* Handle button click to fetch next 10 results*/
-function handleNextBtn(){
+function handleNextBtn(elem){
     $(".js-results").on('click', '.btn_next', function(e){
         e.preventDefault();
         start +=10;
         end +=10;
-        if ($("#cook").is(':checked')){
+        let option = $('.nl-field-toggle').text();
+        if (option === "Cook"){
             //Call the Edamam API again to add 5 more results to the list
             searchRecipes();
         } else 
-        if ($("#eat-out").is(':checked')){
+        if (option === "Eat Out"){
             searchRestaurants();
         }
         $('html, body').animate({
@@ -253,44 +438,40 @@ function handleSearchQuery(){
         //reset the fetch count for items
         start = 0;
         end = 10;
+        let selectedChoice = $(".selection select").find("option:selected").val();
         let text = $('.search_query').val().trim();
-        if ($("#cook").is(':checked')){
-            //queryString  = text.replace(/\s/g,'').split(',').join(' ');
+        if(selectedChoice === "cook"){
             queryString = text.split(',').join(' ');
             searchRecipes();
         } else 
-        if ($("#eat-out").is(':checked')){ 
+        if(selectedChoice === "eat-out"){
             queryString = text;
             searchRestaurants();
         }
     });
 }
 
-
-function handleRadioSelection(){
-    $(".selection input[type='radio']").on('change', function(e){
-        let val = $(this).val();
-        let searchboxHTML = '';
-        //remove the results section to start fresh
-        $(".js-results").empty();
-        $(".js-results").removeClass("results");
-        if(val === 'cook'){
-            searchboxHTML = `
-            <input type="textarea" placeholder="ingredients, recipe name or cuisine" class="search_query" required/>
-            <button type="submit"> Search </button>`;
-        } else
-        if(val === 'eat-out'){
-            searchboxHTML = `
-            <input type="text" placeholder="Type a city name" class="search_query" 
-            id="autocomplete" required />
-            <button type="submit"> Search </button>`;
-        }
-        //empty and append the search box to the DOM
-        $('.searchBox').empty();
-        $('.searchBox').append(searchboxHTML);
+function handleToggleSelection(option){
+    let searchboxHTML = '';
+    //remove the results section to start fresh
+    $(".js-results").empty();
+    $(".js-results").removeClass("results");
+    if(option === 'cook'){
+        searchboxHTML = `
+        <input type="textarea" placeholder="ingredients, recipe name or cuisine" class="search_query" required/>
+        <button type="submit"> Search </button>`;
+    } else
+    if(option === 'eat-out'){
+        searchboxHTML = `
+        <input type="text" placeholder="Type a city name" class="search_query" 
+        id="autocomplete" required />
+        <button type="submit"> Search </button>`;
         //Call the autocomplete cities API to load
         $.getScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDJdWQmj96Rdl3SfR85u8XNw94e2_s-Ezk&libraries=places&callback=initAutocomplete`);
-    })
+    }
+    //empty and append the search box to the DOM
+    $('.searchBox').empty();
+    $('.searchBox').append(searchboxHTML);
 }
 
 function currentSlide(n){
@@ -327,7 +508,9 @@ function handleScrollTop(){
     })
 }
 function launchApp(){
-    handleRadioSelection();
+    handleNLForm();
+    //handleToggleSelection();
+    //handleRadioSelection();
     handleSearchQuery();
     handleNextBtn();
     handlePrevBtn();
